@@ -17,19 +17,21 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  username: <%= ENV['username'] %>
+  password: <%= ENV['password'] %>
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
 
 development:
   <<: *default
-  database: progressivestack_development
+  database: progressivestack_dev
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: progressivestack
+  #username:
 
   # The password associated with the postgres role (username).
   #password:
@@ -81,5 +83,3 @@ test:
 production:
   <<: *default
   database: progressivestack_production
-  username: progressivestack
-  password: <%= ENV['PROGRESSIVESTACK_DATABASE_PASSWORD'] %>
