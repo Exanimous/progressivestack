@@ -34,6 +34,6 @@ That is the purpose of progressivestack - we take the brilliant logic used [here
 
 ### Further reading
 
-[wikepedia](https://en.wikipedia.org/wiki/Progressive_stack)
+[Wikipedia](https://en.wikipedia.org/wiki/Progressive_stack)
 
-[reddit](https://www.reddit.com/r/sjwhate/comments/2sgoq4/introduction_to_the_progressive_stack_or_why/)
+[Reddit](https://www.reddit.com/r/sjwhate/comments/2sgoq4/introduction_to_the_progressive_stack_or_why/)
