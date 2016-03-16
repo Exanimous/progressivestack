@@ -1,28 +1,38 @@
-== README
+# Progressivestack
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## A web-app built in Ruby on Rails to measure your oppression and check your privilege
 
-Things you may want to cover:
+== What we do
 
-* Ruby version
+* Yes this app is a parody (I think)
 
-* System dependencies
+* All algorithms/algorithmic descriptions will be publicly available
 
-* Configuration
+* Please feel free to create an issue if you think my privilege algorithm is wrong!
 
-* Database creation
+== TECHNICAL INFO
 
-* Database initialization
+Tools we use:
 
-* How to run the test suite
+* Ruby on Rails 4.2.5.1
 
-* Services (job queues, cache servers, search engines, etc.)
+* Ruby 2.3.0
 
-* Deployment instructions
+* Postgres 9.4.5
 
-* ...
+* Bootstrap3
 
+### Inspiration
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+A lot of people talk about privilege and systemic oppression in the western world -
+
+So wouldn’t it be a great idea to actually be able to measure it?
+
+That is the purpose of progressivestack - we take the brilliant logic used [here:](https://www.youtube.com/watch?v=SCwhlZtHhWs)
+
+ - and break the system down to it's constituent parts
+
+### Further reading
+
+[wikepedia](https://en.wikipedia.org/wiki/Progressive_stack)
+[reddit](https://www.reddit.com/r/sjwhate/comments/2sgoq4/introduction_to_the_progressive_stack_or_why/)
