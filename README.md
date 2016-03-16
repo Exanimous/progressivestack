@@ -2,7 +2,7 @@
 
 ## A web-app built in Ruby on Rails to measure your oppression and check your privilege
 
-== What we do
+### What we do
 
 * Yes this app is a parody (I think)
 
@@ -10,7 +10,7 @@
 
 * Please feel free to create an issue if you think my privilege algorithm is wrong!
 
-== TECHNICAL INFO
+### TECHNICAL INFO
 
 Tools we use:
 
@@ -35,4 +35,5 @@ That is the purpose of progressivestack - we take the brilliant logic used [here
 ### Further reading
 
 [wikepedia](https://en.wikipedia.org/wiki/Progressive_stack)
+
 [reddit](https://www.reddit.com/r/sjwhate/comments/2sgoq4/introduction_to_the_progressive_stack_or_why/)
