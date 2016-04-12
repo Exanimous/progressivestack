@@ -41,6 +41,12 @@ group :development, :test do
   # https://github.com/rspec/rspec-rails
   # RSpec for Rails-3+ http://relishapp.com/rspec/rspec-rails
   gem 'rspec-rails', '~> 3.0'
+  # https://github.com/thoughtbot/factory_girl_rails
+  # Factory Girl ♥ Rails https://robots.thoughtbot.com
+  gem 'factory_girl_rails'
+  # https://github.com/jnicklas/capybara
+  # Acceptance test framework for web applications http://jnicklas.github.com/capybara/
+  gem 'capybara'
 end
 
 group :development do
