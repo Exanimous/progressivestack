@@ -7,10 +7,17 @@ gem 'rails', '4.2.5.1'
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# Sass port of Bootstrap : see https://github.com/twbs/bootstrap-sass
+gem 'bootstrap-sass', '~> 3.3.6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
+# Font-Awesome Sass gem for use in Ruby/Rails projects : see : https://github.com/FortAwesome/font-awesome-sass
+gem 'font-awesome-sass', '~> 4.5.0'
+# https://github.com/ai/autoprefixer-rails
+# Autoprefixer for Ruby and Ruby on Rails https://twitter.com/autoprefixer
+gem "autoprefixer-rails"
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 # https://github.com/laserlemon/figaro
