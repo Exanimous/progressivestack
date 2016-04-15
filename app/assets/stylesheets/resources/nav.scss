@@ -17,7 +17,7 @@
 
 .navbar-new .navbar-nav > li > a {
   color: $navbar-primary-text;
-  border-bottom: 3px solid rgba(78, 175, 186, 0.0);
+  border-bottom: 4px solid rgba(78, 175, 186, 0.0);
 }
 
 .navbar-new .navbar-nav > li > a:hover,
@@ -28,15 +28,26 @@
 //.navbar-new .navbar-nav .active,
 .navbar-new .navbar-nav > li > a:hover,
 .navbar-new .navbar-nav > li > a:focus {
-  border-bottom: 3px solid $navbar-border;
+  border-bottom: 4px solid $navbar-border;
 }
 
 .navbar-new .navbar-nav > ul > .dropdown-menu {
   background-color: $navbar-transparent;
 }
 
+.navbar-left > li {
+  max-width: 80%;
+}
+.navbar-right > li {
+  max-width: 350px;
+}
+
 .dropdown-menu {
   background-color: $navbar-dropdown;
+}
+
+.dropdown {
+  z-index: 10;
 }
 
 .navbar-new .navbar-nav > .active > a,
@@ -52,6 +63,11 @@
 
 .navbar-new .navbar-toggle {
   border-color: $navbar-highlight;
+  position: absolute;
+  margin-left: 85%;
+  float: right;
+  width: 45px;
+  z-index: 10;
 }
 
 .navbar-new .navbar-toggle:hover,
@@ -61,4 +77,15 @@
 
 .navbar-new .navbar-toggle .icon-bar {
   background-color: $navbar-primary-text;
+}
+
+.navbar-header-center {
+  position: relative;
+  float: left;
+  padding: 0;
+  text-align: center;
+  max-height: 50px;
+}
+.navbar-brand {
+  float:none;
 }
