@@ -23,6 +23,9 @@ gem "autoprefixer-rails"
 # https://github.com/laserlemon/figaro
 # Simple Rails app configuration
 gem "figaro"
+# https://github.com/kpumuk/meta-tags
+# Search Engine Optimization (SEO) plugin for Ruby on Rails applications.
+gem 'meta-tags'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
