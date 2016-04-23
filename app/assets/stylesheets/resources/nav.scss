@@ -35,13 +35,15 @@
   background-color: $navbar-transparent;
 }
 
+.navbar-left, .navbar-right {
+  padding-left: 15px;
+}
+
 .navbar-left > li {
   max-width: 80%;
-  padding-left: 15px;
 }
 .navbar-right > li {
   max-width: 350px;
-  padding-left: 15px;
 }
 
 .dropdown-menu {
