@@ -26,6 +26,9 @@ gem "figaro"
 # https://github.com/kpumuk/meta-tags
 # Search Engine Optimization (SEO) plugin for Ruby on Rails applications.
 gem 'meta-tags'
+# https://github.com/kjvarga/sitemap_generator
+# SitemapGenerator is a framework-agnostic XML Sitemap generator written in Ruby with automatic Rails integration.
+gem 'sitemap_generator'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
