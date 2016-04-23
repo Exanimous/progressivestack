@@ -37,9 +37,11 @@
 
 .navbar-left > li {
   max-width: 80%;
+  padding-left: 15px;
 }
 .navbar-right > li {
   max-width: 350px;
+  padding-left: 15px;
 }
 
 .dropdown-menu {
@@ -85,7 +87,7 @@
   padding: 0;
   text-align: center;
   max-height: 50px;
-  left: 10px;
+  left: 15px;
 }
 .navbar-brand {
   float:none;

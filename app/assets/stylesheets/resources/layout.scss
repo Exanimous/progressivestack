@@ -11,3 +11,9 @@
     padding-left: 10px;
   }
 }
+
+.container-no-padding {
+  @extend .container;
+  padding-left: 0;
+  padding-right: 0;
+}
