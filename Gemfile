@@ -29,6 +29,8 @@ gem 'meta-tags'
 # https://github.com/kjvarga/sitemap_generator
 # SitemapGenerator is a framework-agnostic XML Sitemap generator written in Ruby with automatic Rails integration.
 gem 'sitemap_generator'
+# RealFaviconGenerator plugin for Ruby on Rails
+gem 'rails_real_favicon'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
