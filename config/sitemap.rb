@@ -1,7 +1,5 @@
 # Set the host name for URL creation
 SitemapGenerator::Sitemap.default_host = "https://progressivestack.com"
-# pick a safe place safe to write the files
-SitemapGenerator::Sitemap.public_path = 'tmp/sitemaps/'
 
 SitemapGenerator::Sitemap.create do
   # Put links creation logic here.
