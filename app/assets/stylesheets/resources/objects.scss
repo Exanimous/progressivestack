@@ -125,4 +125,8 @@
   box-shadow: 0 7px 13px 1px $featurette-shadow-dark;
 }
 
-
+/* Use for displaying large centered favicons */
+.floating-favicon-large {
+  text-align: center;
+  font-size: 2.0em;
+}
