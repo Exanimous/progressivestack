@@ -17,3 +17,13 @@
 .text-muted-blue {
   color: #486477;
 }
+
+.header-title {
+  font-weight: 600;
+  text-shadow: -1px -1px 0 rgba(255,255,255,0.3), 1px 1px 0 rgba(67, 67, 67, 0.75);
+  font-size: $h1-font-size*1.2;
+}
+
+h1 {
+  font-size: $h1-font-size;
+}
