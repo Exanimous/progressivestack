@@ -130,3 +130,11 @@
   text-align: center;
   font-size: 2.0em;
 }
+
+/* Main site background landing image */
+.background-landing-image {
+  position: absolute !important;
+  margin-top: -20px !important;
+  padding-top: 0 !important;
+  z-index: -1000;
+}
