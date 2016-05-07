@@ -1,31 +1,32 @@
 <%= image_tag 'landing_background_faded.JPG', class: 'background-landing-image' %>
 
-<div class="container">
-
-  <div class="text-center">
-    <h1><%= title 'Welcome to Progressive Stack' %></h1>
-    <div class="text-muted">
-      <h5>check your privilege... manage your oppression</h5>
+<div class="container-fluid container-fluid-no-padding">
+  <div class="well-landing-transparent">
+    <div class="text-center">
+      <h1 class="header-title"><%= title 'Welcome to Progressive Stack' %></h1>
+      <h5 class="header-small-title text-bleached">check your privilege... manage your oppression</h5>
     </div>
-  </div>
-  <% set_meta_tags title: 'Home Page',
-                   description: "Homepage for Progressive Stack - a site that allows you to sum your oppression and measure your privilege
+    <% set_meta_tags title: 'Home Page',
+                     description: "Homepage for Progressive Stack - a site that allows you to sum your oppression and measure your privilege
                    ... it's your civic duty.",
-                   keywords: %w[home landing about index objective mission social justice sjw politics activism
+                     keywords: %w[home landing about index objective mission social justice sjw politics activism
                               progressive wallstreet occupy quality society marginalization oppression privilege stack]%>
 
-  <br><br><br>
-  <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
-      <h2 class="header-center"> Sum your oppression!</h2>
+    <br><br><br>
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-4">
+        <h2 class="header-center header-small-title"> Sum your oppression!</h2>
 
-      <h2 class="header-center"> Check your privilege!</h2>
+        <h2 class="header-center header-small-title"> Check your privilege!</h2>
 
-      <h3 class="header-center text-muted"> ... it's your civic duty!</h3>
+        <h3 class="header-center header-small-title text-bleached"> ... it's your civic duty!</h3>
 
-      <h5 class="header-center text-muted">Hello world!</h5>
+        <h5 class="header-center header-small-title text-bleached">Hello world!</h5>
+      </div>
     </div>
   </div>
+</div>
 
+<div class="container">
   <%= render 'shared/global_partials/home_featurette' %>
 </div>
