@@ -8,6 +8,8 @@
   @extend .navbar;
   background-color: $navbar-transparent;
   max-height: auto;
+  -webkit-box-shadow: 0 4px 7px 0 $featurette-shadow-dark;
+  box-shadow: 0 4px 7px 0 $featurette-shadow-dark;
 }
 
 .navbar-new .navbar-brand,
