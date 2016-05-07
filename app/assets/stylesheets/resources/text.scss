@@ -35,3 +35,10 @@
 h1 {
   font-size: $h1-font-size;
 }
+
+/* Purely for display */
+.header-micro {
+  text-shadow: -1px -1px 0 rgba(255,255,255,0.3), 1px 1px 0 rgba(67, 67, 67, 0.75);
+  font-size: 0.85em !important;
+  color: #c7f3ff;
+}
