@@ -19,14 +19,16 @@
 
       <div class="col-sm-2">
         <div class="navbar-header-center">
+          <div class="navbar-brand">
           <%= link_to home_path do %>
             <div class="triangle-inverse"><p>PS<span class="header-micro">&equiv;</span></p></div>
           <% end %>
+          </div>
         </div>
       </div>
 
       <div class="col-sm-5">
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse shift-padding-right-strong">
           <%= render 'shared/navbar_partials/navbar_right' %>
         </div><!-- /.navbar-collapse -->
       </div>

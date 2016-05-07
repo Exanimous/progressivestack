@@ -88,22 +88,28 @@
 
 .navbar-header-center {
   position: relative;
-  float: left;
-  padding: 0;
   text-align: center;
   max-height: 50px;
-  left: 15px;
 }
 .navbar-brand {
-  float:none;
+  float: left;
+  padding: 0 0 0 0;
+  margin-left: 15px;
+}
+
+@media screen and (min-width: 991px) {
+  .navbar-header-center {
+    padding-left: 20px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .navbar-header-center {
+    padding-left: 35px;
+  }
 }
 
 @media screen and (min-width: 400px) {
-  .navbar-new .navbar-brand {
-    float: left;
-    margin-right: 5px;
-    margin-left: -15px;
-  }
   .navbar-new .navbar-nav {
     float: left;
     margin-top: 0;
