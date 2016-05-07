@@ -72,3 +72,9 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  # https://github.com/petergoldstein/dalli
+  # High performance memcached client for Ruby
+  gem 'dalli'
+end
+
