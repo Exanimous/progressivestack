@@ -125,6 +125,47 @@
   box-shadow: 0 7px 13px 1px $featurette-shadow-dark;
 }
 
+/* Smaller version of above featurette */
+/* useful for small headers, footer bars etc */
+.featurette-small {
+  @extend .featurette;
+  margin: 10px 0;
+  padding: 2% 15px 2% 15px;
+  min-height: auto;
+  max-height: 75px;
+}
+
+.featurette-small:before {
+  @extend .featurette:before;
+  border-width: 40px;
+  border-top-width: 0;
+  border-bottom-color: $featurette-default;
+  top: -20px;
+}
+.featurette-small:after {
+  @extend .featurette:after;
+  border-width: 40px;
+}
+
+.featurette-small-shadow {
+  @extend .featurette-small;
+  -webkit-box-shadow: 0 7px 13px 1px $featurette-shadow-dark;
+  box-shadow: 0 7px 13px 1px $featurette-shadow-dark;
+}
+
+.featurette-small-thin {
+  @extend .featurette-small;
+  padding-top: 0;
+  max-height: 60px;
+}
+
+.featurette-small-tall {
+  @extend .featurette-small;
+  padding-top: 35px;
+  min-height: 100px;
+  max-height: auto;
+}
+
 /* Use for displaying large centered favicons */
 .floating-favicon-large {
   text-align: center;
