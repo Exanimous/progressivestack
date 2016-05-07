@@ -189,3 +189,40 @@
   padding-top: 0 !important;
   z-index: -1000;
 }
+
+.well-landing-transparent {
+  @extend .well;
+  margin-top: -20px;
+  z-index: -800;
+  border: 0 solid #949494 !important;
+  border-radius:0 !important;
+  -webkit-border-radius:0 !important;
+
+  /* // Vertical gradient
+  background: repeating-linear-gradient(
+                  to right,
+                  rgba(188, 0, 84, 0.25),
+                  rgba(51, 188, 161, 0.25) 30px,
+                  rgba(0, 0, 0, 0.2) 20px,
+                  rgba(255, 255, 255, 0.20) 60px
+  ),
+  linear-gradient(
+                  to top,
+                  rgba(65, 65, 65, 0.30),
+                  rgba(255, 255, 255, 0.90)
+  ); */
+  // Radial gradient
+  background: repeating-radial-gradient(
+                  circle,
+                  rgba(188, 122, 56, 0),
+                  rgba(0, 0, 0, 0.35) 5px,
+                  rgba(98, 135, 188, 0.35) 10px,
+                  rgba(51, 188, 161, 0.35) 50px
+  ),
+  linear-gradient(
+                  to top,
+                  rgba(255, 255, 255, 0.5),
+                  rgba(255, 255, 255, 0.0)
+  );
+}
+
