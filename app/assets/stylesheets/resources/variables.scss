@@ -11,3 +11,14 @@ $featurette-default: #eeeeee;
 $featurette-shadow-light: rgba(121, 137, 154, 0.80);
 $featurette-shadow-dark: rgba(73, 79, 89, 0.80);
 $h1-font-size: 2.6em;
+/* Example font stacks */
+$ubuntu-font-stack: 'Ubuntu', sans-serif !default;
+$ubuntu-mono-font-stack: 'Ubuntu Mono', sans-serif !default;
+$ubuntu-condensed-font-stack: 'Ubuntu Condensed', sans-serif !default;
+/* Used font stacks */
+$large-header-font-stack: 'Ubuntu Mono', 'Ubuntu', sans-serif !default;
+$standard-header-font-stack: 'Ubuntu Condensed', 'Ubuntu', sans-serif !default;
+$font-standard: 'Ubuntu', sans-serif !default;
+
+$header-glow: #0044be;
+$header-secondary-glow: #00d695;

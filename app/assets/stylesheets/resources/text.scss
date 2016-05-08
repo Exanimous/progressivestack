@@ -22,18 +22,44 @@
   color: #f0f6ff;
 }
 
-.header-title {
+.header-title-glow {
   font-weight: 600;
-  text-shadow: -1px -1px 0 rgba(255,255,255,0.3), 1px 1px 0 rgba(67, 67, 67, 0.75);
   font-size: $h1-font-size*1.2;
+  color: #fff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $header-glow, 0 0 30px $header-glow, 0 0 40px $header-glow, 0 0 50px $header-glow, 0 0 75px $header-glow;
+  letter-spacing: 2px;
+  font-family: $large-header-font-stack;
+}
+
+.header-medium-glow {
+  color: #fff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $header-glow, 0 0 30px $header-glow, 0 0 40px $header-glow, 0 0 50px $header-glow, 0 0 75px $header-glow;
+  letter-spacing: 1px;
+  font-family: $large-header-font-stack;
+}
+
+.header-small-glow {
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px $header-secondary-glow, 0 0 30px $header-secondary-glow, 0 0 40px
+  $header-secondary-glow, 0 0 50px $header-secondary-glow, 0 0 75px $header-secondary-glow;
+  font-family: $standard-header-font-stack;
 }
 
 .header-small-title {
-  text-shadow: -1px -1px 0 rgba(255,255,255,0.3), 1px 1px 0 rgba(67, 67, 67, 0.85);
+  text-shadow: 0 1px 1px #4d4d4d;
+  font-family: $standard-header-font-stack;
 }
 
 h1 {
   font-size: $h1-font-size;
+  font-family: $large-header-font-stack;
+}
+
+h2, h3, h4, h5 {
+  font-family: $standard-header-font-stack;
+}
+
+body {
+  font-family: $font-standard;
 }
 
 /* Purely for display */
@@ -41,4 +67,5 @@ h1 {
   text-shadow: -1px -1px 0 rgba(255,255,255,0.3), 1px 1px 0 rgba(67, 67, 67, 0.75);
   font-size: 0.85em !important;
   color: #c7f3ff;
+  font-family: $large-header-font-stack;
 }
