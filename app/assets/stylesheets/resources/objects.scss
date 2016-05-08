@@ -184,10 +184,9 @@
 
 /* Main site background landing image */
 .background-landing-image {
-  position: absolute !important;
-  margin-top: -20px !important;
+  margin-top: 0 !important;
   padding-top: 0 !important;
-  z-index: -1000;
+  background: asset-url('landing_background_faded.JPG') no-repeat;
 }
 
 .well-landing-transparent {

@@ -1,32 +1,32 @@
-<%= image_tag 'landing_background_faded.JPG', class: 'background-landing-image' %>
+<body class="background-landing-image">
+  <div class="container-fluid-no-padding">
+    <div class="well-landing-transparent">
+      <div class="text-center">
+        <h1 class="header-title-glow text-uppercase"><%= title 'Welcome to Progressive Stack' %></h1>
+        <h4 class="header-medium-glow">check your privilege... manage your oppression</h4>
+      </div>
+      <% set_meta_tags title: 'Home | all about Social Justice Politics and the Progressive Stack',
+                       description: "Homepage for Progressive Stack - a site that allows you to sum your oppression and measure your privilege
+                     ... it's your civic duty.",
+                       keywords: %w[home landing about index objective mission social justice sjw politics activism
+                                progressive wallstreet occupy quality society marginalization oppression privilege stack]%>
 
-<div class="container-fluid-no-padding">
-  <div class="well-landing-transparent">
-    <div class="text-center">
-      <h1 class="header-title-glow text-uppercase"><%= title 'Welcome to Progressive Stack' %></h1>
-      <h4 class="header-medium-glow">check your privilege... manage your oppression</h4>
-    </div>
-    <% set_meta_tags title: 'Home | all about Social Justice Politics and the Progressive Stack',
-                     description: "Homepage for Progressive Stack - a site that allows you to sum your oppression and measure your privilege
-                   ... it's your civic duty.",
-                     keywords: %w[home landing about index objective mission social justice sjw politics activism
-                              progressive wallstreet occupy quality society marginalization oppression privilege stack]%>
+      <br><br><br>
+      <div class="row">
+        <div class="col-sm-4 col-sm-offset-4">
+          <h2 class="header-center header-small-glow"> Sum your oppression!</h2>
 
-    <br><br><br>
-    <div class="row">
-      <div class="col-sm-4 col-sm-offset-4">
-        <h2 class="header-center header-small-glow"> Sum your oppression!</h2>
+          <h2 class="header-center header-small-glow"> Check your privilege!</h2>
 
-        <h2 class="header-center header-small-glow"> Check your privilege!</h2>
+          <h3 class="header-center header-small-glow"> ... it's your civic duty!</h3>
 
-        <h3 class="header-center header-small-glow"> ... it's your civic duty!</h3>
+          <h5 class="header-center header-small-title text-bleached">Hello world!</h5>
+        </div>
+      </div>
 
-        <h5 class="header-center header-small-title text-bleached">Hello world!</h5>
+      <div class="container">
+        <%= render 'shared/global_partials/home_featurette' %>
       </div>
     </div>
-
-    <div class="container">
-      <%= render 'shared/global_partials/home_featurette' %>
-    </div>
   </div>
-</div>
+</body>
