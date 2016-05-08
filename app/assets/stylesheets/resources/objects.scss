@@ -184,8 +184,7 @@
 
 /* Main site background landing image */
 .background-landing-image {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
+  @extend body;
   background: asset-url('landing_background_faded.JPG') no-repeat;
 }
 
