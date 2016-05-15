@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Quotum.destroy_all
+
+20.times do |i|
+  Quotum.create!(id: i+1, name: "Seed quotum number #{i+1}")
+end
+
+p "db:seed -- Created #{Quotum.count} quotum."
