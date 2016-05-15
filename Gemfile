@@ -31,6 +31,9 @@ gem 'meta-tags'
 gem 'sitemap_generator'
 # RealFaviconGenerator plugin for Ruby on Rails
 gem 'rails_real_favicon'
+# https://github.com/plataformatec/simple_form
+# Forms made easy for Rails! It's tied to a simple DSL, with no opinion on markup. http://blog.plataformatec.com.br/tag/simple_form
+gem 'simple_form'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
