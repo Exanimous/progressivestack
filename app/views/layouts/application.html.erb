@@ -14,7 +14,8 @@
   <!-- favicon -->
   <%= render 'application/favicon' %>
 </head>
-<body>
+<!-- scope body by controller and action -->
+<body data-controller="<%= controller.controller_path %>" data-action="<%= controller.action_name %>">
 
   <%= render 'layouts/messages' %>
   <%= render 'layouts/header' %>
