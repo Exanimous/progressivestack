@@ -228,6 +228,22 @@
   box-shadow: 0 4px 1px 0 #dcdcdc;
 }
 
+// anchor alerts to top (fixed)
+.alert {
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 26px;
+  z-index: 9999;
+  border-radius: 0;
+}
+
+.alert-danger {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
 .modal-dialog {
   padding-top: 30px;
 }
