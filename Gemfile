@@ -68,6 +68,17 @@ group :development, :test do
   # https://github.com/jnicklas/capybara
   # Acceptance test framework for web applications http://jnicklas.github.com/capybara/
   gem 'capybara'
+  # https://github.com/thoughtbot/capybara-webkit
+  # A Capybara driver for headless WebKit to test JavaScript web apps
+  gem 'capybara-webkit'
+  # https://github.com/DatabaseCleaner/database_cleaner
+  # Strategies for cleaning databases in Ruby.
+  # Can be used to ensure a clean state for testing. http://rubygems.org/gems/database_cleaner
+  gem 'database_cleaner'
+
+  # https://github.com/mattheworiordan/capybara-screenshot
+  # Automatically save screen shots when a Capybara scenario fails
+  gem 'capybara-screenshot'
 end
 
 group :development do
