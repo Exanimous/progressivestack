@@ -79,6 +79,7 @@ group :development, :test do
   # https://github.com/mattheworiordan/capybara-screenshot
   # Automatically save screen shots when a Capybara scenario fails
   gem 'capybara-screenshot'
+  gem 'selenium-webdriver'
 end
 
 group :development do
