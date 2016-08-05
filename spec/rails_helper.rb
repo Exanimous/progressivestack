@@ -64,3 +64,12 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+# Capybara test options
+Capybara::Webkit.configure do |config|
+
+  config.block_url("http://www.google-analytics.com/ga.js")
+
+  # Don't load images
+  config.skip_image_loading
+end
