@@ -1,5 +1,6 @@
 module ApplicationHelper
 
+  # Select required bootstrap notifications (messages)
   def bootstrap_class_for(flash_type)
     case flash_type
       when "success"
