@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Progressivestack</title>
+  <title><%= yield(:title) %>Progressivestack</title>
   <%= display_meta_tags site: 'Progressive Stack' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag params[:controller], media: 'all', 'data-turbolinks-track' => true %>
@@ -17,7 +17,8 @@
 <!-- scope body by controller and action -->
 <body data-controller="<%= controller.controller_path %>" data-action="<%= controller.action_name %>">
 
-  <%= render 'layouts/messages' %>
+  <!-- modal container -->
+  <%= render 'layouts/dialog' %>
   <%= render 'layouts/header' %>
   <%= yield %>
   <%= render 'layouts/footer' %>
