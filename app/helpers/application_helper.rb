@@ -15,4 +15,14 @@ module ApplicationHelper
         flash_type.to_s
     end
   end
+
+  # Display page title
+  def title(title_txt)
+    content_for(:title) { title_txt }
+  end
+
+  # Display modal title
+  def modal_header(title_txt)
+    content_for(:modal_header) { title_txt }
+  end
 end
