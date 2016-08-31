@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get 'index' => 'pages#index'
   get 'home' => 'pages#index'
 
+  get 'quota/index' => 'quota'
+
+  resources :quota
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,3 @@
+$('div#<%= dom_id(@quotum) %>').fadeOut();
+$("#notification").html("<%= escape_javascript(render :partial => 'shared/global_partials/flash_messages' , :locals => { :flash => flash }).html_safe %>");
+fadeOutNotification(2000);

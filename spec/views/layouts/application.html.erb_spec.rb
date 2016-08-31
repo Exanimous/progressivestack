@@ -16,17 +16,24 @@ describe 'layouts/application.html.erb' do
     expect(rendered).to render_template(partial: "_footer")
   end
 
-  it 'View: application display messages' do
-
-    render
-
-    expect(rendered).to render_template(partial: "_messages")
-  end
-
   it 'View: application debug messages' do
 
     render
 
     expect(rendered).to render_template(partial: "_debug")
+  end
+
+  it 'View: application flash messages' do
+
+    render
+
+    expect(rendered).to render_template(partial: "_flash_messages")
+  end
+
+  it 'View: application dialog' do
+
+    render
+
+    expect(rendered).to render_template(partial: "_dialog")
   end
 end

@@ -1,0 +1,10 @@
+<div class="container margin-top-small">
+  <h1>Quota</h1>
+
+  <%= render(partial: 'quota/partials/quota', locals: { quota: quota }) %>
+
+  <div class="main-content">
+    <%= link_to 'New Quotum', new_quotum_path, class: "btn btn-primary" %>
+    <%= link_to 'New Quotum (remote)', new_quotum_path, remote: true, class: "btn btn-primary" %>
+  </div>
+</div>

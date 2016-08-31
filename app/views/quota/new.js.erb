@@ -1,0 +1,5 @@
+document.title = 'New quotum | Progressivestack';
+header = 'New Quotum';
+$(".modal-header .modal-title").html(header);
+$(".modal-body-content").html("<%= j (render 'form') %>");
+$("#dialog").modal("show");

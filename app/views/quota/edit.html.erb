@@ -1,0 +1,12 @@
+<body data-controller="<%= controller.controller_path %>" data-action="<%= controller.action_name %>" data-html-action="1">
+
+<%= render partial: 'index', locals: { quota: Quotum.none }, layout: false %>
+
+<% title("Editing #{@quotum.name} ") %>
+<% modal_header("Editing #{@quotum.name}") %>
+
+<%= javascript_tag do %>
+  <%= render(partial: 'shared/global_partials/modal', formats: [:js]) %>
+<% end %>
+
+</body>

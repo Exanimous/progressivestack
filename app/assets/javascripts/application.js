@@ -16,3 +16,15 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(document).ready(function() {
+    // Fade out bootstrap notifications & alerts
+    fadeOutNotification(2000);
+});
+
+
+
+
+
+
+

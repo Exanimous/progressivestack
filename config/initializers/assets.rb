@@ -13,3 +13,6 @@ Rails.application.config.assets.version = '1.0'
 %w( pages ).each do |controller|
   Rails.application.config.assets.precompile += ["#{controller}.scss"]
 end
+%w( quota ).each do |controller|
+  Rails.application.config.assets.precompile += ["#{controller}.scss"]
+end

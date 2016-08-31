@@ -1,0 +1,6 @@
+<!-- primary partial for dynamic ajax actions -->
+<div class="quota-index main-content">
+  <% quota.each do |quotum| %>
+    <%= render 'quota/partials/quotum', quotum: quotum %>
+  <% end %>
+</div>
