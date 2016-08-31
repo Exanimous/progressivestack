@@ -53,6 +53,7 @@ if history and history.pushState
 modalCloseWithLock = ($element) ->
   $element.data('lock', true)
   $element.modal 'hide'
+  $element.data('lock', false)
   return
 
 # --Force set page title
