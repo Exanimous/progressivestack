@@ -98,7 +98,7 @@ class QuotaController < ApplicationController
   private
 
   def set_quotum
-    @quotum = Quotum.find(params[:id])
+    @quotum = Quotum.find_by_slug!(params[:slug])
   end
 
   def set_quota

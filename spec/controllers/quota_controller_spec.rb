@@ -25,13 +25,13 @@ RSpec.describe QuotaController, type: :controller do
 
   describe 'GET #new' do
     it 'Controller: renders the new view (html)' do
-      get :new, format: 'html', id: FactoryGirl.build(:quotum)
+      get :new, format: 'html', slug: FactoryGirl.build(:quotum)
       expect(response).to render_template('new')
       expect(response.content_type).to eq(Mime::HTML)
     end
 
     it 'Controller: renders the new view (js)' do
-      xhr :get, :new, format: 'js', id: FactoryGirl.build(:quotum)
+      xhr :get, :new, format: 'js', slug: FactoryGirl.build(:quotum)
       expect(response).to render_template('new')
       expect(response.content_type).to eq(Mime::JS)
     end
@@ -39,13 +39,13 @@ RSpec.describe QuotaController, type: :controller do
 
   describe 'GET #edit' do
     it 'Controller: renders the edit view (html)' do
-      get :edit, format: 'html', id: FactoryGirl.create(:quotum)
+      get :edit, format: 'html', slug: FactoryGirl.create(:quotum)
       expect(response).to render_template('edit')
       expect(response.content_type).to eq(Mime::HTML)
     end
 
     it 'Controller: renders the edit view (js)' do
-      xhr :get, :edit, format: 'js', id: FactoryGirl.create(:quotum)
+      xhr :get, :edit, format: 'js', slug: FactoryGirl.create(:quotum)
       expect(response).to render_template('edit')
       expect(response.content_type).to eq(Mime::JS)
     end
@@ -88,19 +88,19 @@ RSpec.describe QuotaController, type: :controller do
 
     context "with valid attributes" do
       it 'Controller: locate requested @quotum', js: true do
-        xhr :put, :update, id: @quotum, quotum: FactoryGirl.attributes_for(:quotum)
+        xhr :put, :update, slug: @quotum, quotum: FactoryGirl.attributes_for(:quotum)
         expect(assigns(:quotum)).to eq(@quotum)
       end
 
       it 'update @quotum attributes', js: true do
         new_name = "Quotum updated"
-        xhr :put, :update, id: @quotum, quotum: FactoryGirl.attributes_for(:quotum, name: new_name)
+        xhr :put, :update, slug: @quotum, quotum: FactoryGirl.attributes_for(:quotum, name: new_name)
         @quotum.reload
         expect(@quotum.name).to eq(new_name)
       end
 
       it 'Controller: displays flash success', js: true do
-        xhr :put, :update, id: @quotum, quotum: FactoryGirl.attributes_for(:quotum)
+        xhr :put, :update, slug: @quotum, quotum: FactoryGirl.attributes_for(:quotum)
         expect(flash[:success]).to be_present
       end
 
@@ -108,19 +108,19 @@ RSpec.describe QuotaController, type: :controller do
 
     context "with invalid attributes" do
       it 'Controller: locate requested @quotum', js: true do
-        xhr :put, :update, id: @quotum, quotum: FactoryGirl.attributes_for(:invalid_quotum)
+        xhr :put, :update, slug: @quotum, quotum: FactoryGirl.attributes_for(:invalid_quotum)
         expect(assigns(:quotum)).to eq(@quotum)
       end
 
       it 'does not update @quotum attributes', js: true do
         new_name = "Quotum updated"
-        xhr :put, :update, id: @quotum, quotum: FactoryGirl.attributes_for(:quotum, name: nil)
+        xhr :put, :update, slug: @quotum, quotum: FactoryGirl.attributes_for(:quotum, name: nil)
         @quotum.reload
         expect(@quotum.name).to eq(@quotum.name)
       end
 
       it 'Controller: displays flash error', js: true do
-        xhr :put, :update, id: @quotum, quotum: FactoryGirl.attributes_for(:quotum, name: nil)
+        xhr :put, :update, slug: @quotum, quotum: FactoryGirl.attributes_for(:quotum, name: nil)
         expect(flash[:error]).to be_present
       end
     end
@@ -134,12 +134,12 @@ RSpec.describe QuotaController, type: :controller do
 
     it 'deletes the quotum', js: true do
       expect {
-        xhr :delete, :destroy, id: @quotum
+        xhr :delete, :destroy, slug: @quotum
       }.to change(Quotum, :count).by(-1)
     end
 
     it 'Controller: display notice', js: true do
-      xhr :delete, :destroy, id: @quotum
+      xhr :delete, :destroy, slug: @quotum
       expect(flash[:notice]).to be_present
     end
   end
