@@ -5,7 +5,7 @@ require 'rails_helper'
 # new quotum, create, update index display
 
 RSpec.feature "Feature: new quotum & historystate: " do
-  given!(:quotum) { FactoryGirl.build(:quotum, name: "RSpec Quotum") }
+  given!(:quotum) { FactoryGirl.build(:quotum, name: "rspec quotum") }
   given!(:invalid_quotum) { FactoryGirl.build(:invalid_quotum) }
 
   #before :each do

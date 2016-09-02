@@ -8,10 +8,10 @@ RSpec.feature "Feature: update quotum: " do
   #before :each do
   #  @quotum = FactoryGirl.create(:quotum, name: "Feature #update quotum")
   #end
-  given(:new_quotum) { FactoryGirl.build(:quotum, name: "Updated RSpec Quotum") }
+  given(:new_quotum) { FactoryGirl.build(:quotum, name: "updated rspec quotum") }
   given(:invalid_quotum) { FactoryGirl.build(:invalid_quotum) }
   before :each do
-    @quotum = FactoryGirl.create(:quotum, name: "update RSpec Quotum")
+    @quotum = FactoryGirl.create(:quotum, name: "update rspec quotum")
   end
 
 
@@ -61,7 +61,7 @@ RSpec.feature "Feature: update quotum: " do
     expect(page).to have_content("Name can't be blank")
     expect(page).to have_content("Editing #{@quotum.name}")
     expect(page).to have_title "Editing #{@quotum.name} | Progressivestack"
-    expect(@quotum.name).to eq("update RSpec Quotum")
+    expect(@quotum.name).to eq("update rspec quotum")
   end
 
   # simulate visit and update via url (html)
@@ -94,7 +94,7 @@ RSpec.feature "Feature: update quotum: " do
 
     expect(page).to have_selector('.alert-danger')
     expect(page).to have_content("Name can't be blank")
-    expect(@quotum.name).to eq("update RSpec Quotum")
+    expect(@quotum.name).to eq("update rspec quotum")
     expect(page).to have_title "Editing #{@quotum.name} | Progressivestack"
     expect(page).to have_content("Editing #{@quotum.name}")
   end

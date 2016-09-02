@@ -5,7 +5,7 @@ require 'rails_helper'
 # new quotum, create, update index display
 
 RSpec.feature "Feature: create quotum: " do
-  given!(:quotum) { FactoryGirl.build(:quotum, name: "New RSpec Quotum") }
+  given!(:quotum) { FactoryGirl.build(:quotum, name: "new rspec quotum") }
   given!(:invalid_quotum) { FactoryGirl.build(:invalid_quotum) }
 
   # visit via remote link (js)

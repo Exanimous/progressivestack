@@ -83,7 +83,7 @@ RSpec.describe QuotaController, type: :controller do
   # Qoutum Update Action (PUT)
   describe "PUT #update" do
     before :each do
-      @quotum = FactoryGirl.create(:quotum, name: "PUT #update quotum")
+      @quotum = FactoryGirl.create(:quotum, name: "put #update quotum")
     end
 
     context "with valid attributes" do
@@ -93,7 +93,7 @@ RSpec.describe QuotaController, type: :controller do
       end
 
       it 'update @quotum attributes', js: true do
-        new_name = "Quotum updated"
+        new_name = "quotum updated"
         xhr :put, :update, slug: @quotum, quotum: FactoryGirl.attributes_for(:quotum, name: new_name)
         @quotum.reload
         expect(@quotum.name).to eq(new_name)
@@ -113,7 +113,7 @@ RSpec.describe QuotaController, type: :controller do
       end
 
       it 'does not update @quotum attributes', js: true do
-        new_name = "Quotum updated"
+        new_name = "quotum updated"
         xhr :put, :update, slug: @quotum, quotum: FactoryGirl.attributes_for(:quotum, name: nil)
         @quotum.reload
         expect(@quotum.name).to eq(@quotum.name)

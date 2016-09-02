@@ -3,7 +3,7 @@ require 'rails_helper'
 
 describe 'quota/edit' do
   before :each do
-    @quotum = FactoryGirl.create(:quotum, name: "RSpec edit Quotum")
+    @quotum = FactoryGirl.create(:quotum, name: "rspec edit quotum")
   end
 
 
