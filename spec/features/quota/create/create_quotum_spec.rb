@@ -95,4 +95,28 @@ RSpec.feature "Feature: create quotum: " do
       expect(page).to have_title "New quotum | Progressivestack"
     }.to_not change(Quotum, :count)
   end
+
+  # due to parameterization called on name to generate slug - sometimes slug will be non-unique
+  # tests when we create a quotum with valid name and invalid slug due to parameterization
+  scenario 'create new quotum with name that creates invalid slug (html)', js: true do
+    Capybara.javascript_driver = :selenium
+
+    @quotum = FactoryGirl.create(:quotum, name: "new rspec quotum")
+
+    expect {
+
+      visit new_quotum_path(format: :html)
+
+      wait_for_ajax
+      expect(page).to have_content('Name')
+      fill_in 'Name', with: 'new rspec & quotum'
+      click_button "Create Quotum"
+
+      expect(page).to have_selector('.alert-danger')
+      expect(page).to have_content("Name is unavailable")
+      expect(page).to have_content('New Quotum')
+      expect(page).to have_title "New quotum | Progressivestack"
+
+    }.to_not change(Quotum, :count)
+  end
 end
