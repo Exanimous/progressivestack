@@ -62,3 +62,4 @@ modalCloseWithLock = ($element) ->
 setTitle = (directory) ->
   switch directory
     when 'quota' then document.title = 'Quota index | Progressivestack'
+    when 'q' then document.title = 'Quota index | Progressivestack'

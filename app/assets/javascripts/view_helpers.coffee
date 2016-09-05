@@ -1,6 +1,8 @@
 # return current controller
 @getController = ->
   controller = $('body').data('controller')
+  if controller == 'quota'
+    controller = 'q'
   controller
 
 # returns true if action origin was an html request

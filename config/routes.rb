@@ -4,10 +4,16 @@ Rails.application.routes.draw do
 
   get 'index' => 'pages#index'
   get 'home' => 'pages#index'
+  get 'q/index' =>  redirect('/q')
 
-  get 'quota/index' => 'quota'
+  resources :quota, path: 'q', param: :slug
 
-  resources :quota, param: :slug
+  # /* Quota redirection rules */
+  get 'quota/index' => redirect('/q')
+  get "/quota" => redirect('/q')
+  get '/quota/new' => redirect('/q/new')
+  get '/quota/:slug/edit', to: redirect("/q/%{slug}/edit")
+  get '/quota/:slug/edit', to: redirect("/q/%{slug}/edit")
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
