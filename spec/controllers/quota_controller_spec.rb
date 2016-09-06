@@ -78,6 +78,23 @@ RSpec.describe QuotaController, type: :controller do
         expect(flash[:error]).to be_present
       end
     end
+
+    context "with invalid recaptcha" do
+      before do
+        Recaptcha.configuration.skip_verify_env.delete("test")
+      end
+
+      after do
+        Recaptcha.configuration.skip_verify_env << "test"
+      end
+
+      it 'Controller: fail to create a new quotum', js: true do
+        expect {
+          post :create, format: 'js', quotum: FactoryGirl.attributes_for(:quotum)
+        }.to_not change(Quotum, :count)
+        expect(flash[:error]).to be_present
+      end
+    end
   end
 
   # Qoutum Update Action (PUT)

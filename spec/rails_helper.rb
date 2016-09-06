@@ -69,6 +69,7 @@ end
 Capybara::Webkit.configure do |config|
 
   config.block_url("http://www.google-analytics.com/ga.js")
+  config.allow_url("https://www.google.com/recaptcha/api.js")
 
   # Don't load images
   config.skip_image_loading

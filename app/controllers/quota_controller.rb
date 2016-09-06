@@ -55,7 +55,7 @@ class QuotaController < ApplicationController
     @quotum = Quotum.new(quotum_params)
 
     respond_to do |format|
-      if @quotum.save
+      if verify_recaptcha(model: @quotum) && @quotum.save
         flash.now[:success] = "Quotum: #{@quotum.name} was successfully created."
         format.html
         format.js
@@ -71,7 +71,7 @@ class QuotaController < ApplicationController
     @quotum.assign_attributes(quotum_params)
 
     respond_to do |format|
-      if @quotum.save
+      if verify_recaptcha(model: @quotum) && @quotum.save
         flash.now[:success] = "Quotum: #{@quotum.name} was successfully updated."
         format.html
         format.js
