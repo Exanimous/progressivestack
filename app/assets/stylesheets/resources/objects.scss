@@ -182,12 +182,6 @@
   font-size: 1.15em;
 }
 
-/* Main site background landing image */
-.background-landing-image {
-  @extend body;
-  background: asset-url('landing_background_faded.JPG') no-repeat;
-}
-
 .well-landing-transparent {
   @extend .well;
   margin-top: -20px;
