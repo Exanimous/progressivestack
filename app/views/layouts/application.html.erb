@@ -15,7 +15,7 @@
     <%= render 'application/favicon' %>
   </head>
   <!-- scope body by controller and action -->
-  <body data-controller="<%= controller.controller_path %>" data-action="<%= controller.action_name %>">
+  <body data-controller="<%= controller.controller_path %>" data-action="<%= controller.action_name %>" class="<%= yield(:body_class) %>">
 
     <!-- modal container -->
     <%= render 'layouts/dialog' %>

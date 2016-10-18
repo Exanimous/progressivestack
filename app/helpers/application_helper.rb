@@ -25,4 +25,9 @@ module ApplicationHelper
   def modal_header(title_txt)
     content_for(:modal_header) { title_txt }
   end
+
+  # Handle html body class
+  def body_class(class_name="body")
+    content_for :body_class, class_name
+  end
 end
