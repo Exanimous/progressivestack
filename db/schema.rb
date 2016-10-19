@@ -11,18 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831142645) do
+ActiveRecord::Schema.define(version: 20161019130241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "quota", force: :cascade do |t|
-    t.string   "name",       limit: 128, null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "slug",       limit: 128, null: false
+    t.string   "name",       limit: 128,                null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.string   "slug",       limit: 128,                null: false
+    t.boolean  "approved",               default: true, null: false
   end
 
+  add_index "quota", ["approved"], name: "index_quota_on_approved", using: :btree
   add_index "quota", ["name"], name: "index_quota_on_name", unique: true, using: :btree
   add_index "quota", ["slug"], name: "index_quota_on_slug", unique: true, using: :btree
 
