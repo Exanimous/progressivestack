@@ -15,15 +15,21 @@ development:
   password: ""  # password for remote database
   secret: ""  # secret_key_base
   secret_devise: "" # secret key for devise gem/auth
+  rakismet_key: "" # your akismet key
+  rakismet_url: "" # your akismet website url
 
 production:
   username: "" # username for remote database
   password: ""  # password for remote database
   secret: ""  # secret_key_base
   secret_devise: "" # secret key for devise gem/auth
+  rakismet_key: "" # your akismet key
+  rakismet_url: "" # your akismet website url
 
 test:
   username: "" # username for remote database
   password: ""  # password for remote database
   secret: ""  # secret_key_base
   secret_devise: "" # secret key for devise gem/auth
+  rakismet_key: "" # your akismet key
+  rakismet_url: "" # your akismet website url

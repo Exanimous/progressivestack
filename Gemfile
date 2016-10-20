@@ -51,6 +51,16 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # ReCaptcha helpers for ruby apps
 gem "recaptcha", require: "recaptcha/rails"
 
+# https://github.com/joshfrench/rakismet
+# Easy Akismet and TypePad AntiSpam integration for Rails
+gem 'rakismet'
+
+# https://github.com/collectiveidea/delayed_job
+# Database based asynchronous priority queue system -- Extracted from Shopify http://groups.google.com/group/delayed_job
+gem 'delayed_job_active_record'
+# https://github.com/thuehlinger/daemons
+gem 'daemons'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
