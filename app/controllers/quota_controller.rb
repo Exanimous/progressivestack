@@ -102,7 +102,7 @@ class QuotaController < ApplicationController
   end
 
   def set_quota
-    @quota = Quotum.all
+    @quota = Quotum.visible.all
   end
 
   def quotum_params

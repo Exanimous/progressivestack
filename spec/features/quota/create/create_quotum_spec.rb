@@ -7,6 +7,7 @@ require 'rails_helper'
 RSpec.feature "Feature: create quotum: " do
   given!(:quotum) { FactoryGirl.build(:quotum, name: "new rspec quotum") }
   given!(:invalid_quotum) { FactoryGirl.build(:invalid_quotum) }
+  given!(:spam_quotum) { FactoryGirl.build(:spam_quotum) }
 
   # visit via remote link (js)
   # perform create action
@@ -118,5 +119,47 @@ RSpec.feature "Feature: create quotum: " do
       expect(page).to have_title "New quotum | Progressivestack"
 
     }.to_not change(Quotum, :count)
+  end
+
+  # visit via remote link (js)
+  # perform create action
+  # quotum will be created but should be invisible
+  scenario 'create new quotum with spam input (remote/js)', js: true do
+    Capybara.javascript_driver = :selenium
+
+    expect {
+      visit quota_path
+
+      click_link "New Quotum (remote)"
+
+      wait_for_ajax
+      expect(page).to have_content('Name')
+      fill_in 'Name', with: spam_quotum.name
+      click_button "Create Quotum"
+
+      expect(page).to have_selector('.alert-success')
+      expect(page).to_not have_content(quotum.name)
+      expect(page).to have_title "Quota index | Progressivestack"
+    }.to_not change(Quotum.visible, :count)
+  end
+
+  # simulate visit link directly via url (html)
+  # perform create action
+  scenario 'create new quotum with spam input via url (html)', js: true do
+    Capybara.javascript_driver = :selenium
+
+    expect {
+
+      visit new_quotum_path(format: :html)
+
+      wait_for_ajax
+      expect(page).to have_content('Name')
+      fill_in 'Name', with: spam_quotum.name
+      click_button "Create Quotum"
+
+      expect(page).to have_selector('.alert-success')
+      expect(page).to_not have_content(quotum.name)
+      expect(page).to have_title "Quota index | Progressivestack"
+    }.to_not change(Quotum.visible, :count)
   end
 end

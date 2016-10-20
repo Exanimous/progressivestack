@@ -9,11 +9,13 @@ var $notification = $("#notification");
 <% else %>
   $('#dialog').modal('hide');
 
-  // replace existing div (if present) or render new
-  <% if update %>
-    $('div#<%= dom_id(@quotum) %>').replaceWith("<%= j render partial: 'quota/partials/quotum', locals: {quotum: @quotum } %>");
-  <% else %>
-    $('.quota-index').append("<%= j render partial: 'quota/partials/quotum', locals: {quotum: @quotum } %>");
+  // replace existing div (if present) or render new (only if quotum is approved)
+  <% if @quotum.approved %>
+    <% if update  %>
+      $('div#<%= dom_id(@quotum) %>').replaceWith("<%= j render partial: 'quota/partials/quotum', locals: {quotum: @quotum } %>");
+    <% else %>
+      $('.quota-index').append("<%= j render partial: 'quota/partials/quotum', locals: {quotum: @quotum } %>");
+    <% end %>
   <% end %>
 
   $notification.html("<%= escape_javascript(render :partial => 'shared/global_partials/flash_messages' , :locals => { :flash => flash }).html_safe %>");

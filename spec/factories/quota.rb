@@ -6,4 +6,8 @@ FactoryGirl.define do
   factory :invalid_quotum, class: Quotum do |f|
     f.name ""
   end
+
+  factory :spam_quotum, class: Quotum do |f|
+    f.name "viagra-test-123"
+  end
 end

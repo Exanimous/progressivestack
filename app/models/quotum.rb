@@ -1,4 +1,6 @@
 class Quotum < ActiveRecord::Base
+  include Rakismet::Model
+  rakismet_attrs content: :name
 
   validates :name, presence: true, length: { minimum: 4, maximum: 64 }, uniqueness: true
   validates_length_of :slug, maximum: 64
@@ -6,6 +8,10 @@ class Quotum < ActiveRecord::Base
 
   before_validation :downcase_fields
   before_validation :generate_slug
+  after_save :check_for_spam
+
+  # only display quota that are approved
+  scope :visible, -> { where(approved: true) }
 
   def to_param
     slug
@@ -27,5 +33,14 @@ class Quotum < ActiveRecord::Base
   # only run slug validation if name is present
   def generate_slug
     self.slug ||= name.parameterize if name.present?
+  end
+
+  # check quotom :name for spam by calling Askimet API
+  def check_for_spam
+    if self.spam?
+      self.update_column(:approved, false)
+    elsif !approved
+      self.update_column(:approved, true)
+    end
   end
 end

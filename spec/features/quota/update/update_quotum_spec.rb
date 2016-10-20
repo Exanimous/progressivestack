@@ -10,6 +10,7 @@ RSpec.feature "Feature: update quotum: " do
   #end
   given(:new_quotum) { FactoryGirl.build(:quotum, name: "updated rspec quotum") }
   given(:invalid_quotum) { FactoryGirl.build(:invalid_quotum) }
+  given!(:spam_quotum) { FactoryGirl.build(:spam_quotum) }
   before :each do
     @quotum = FactoryGirl.create(:quotum, name: "update rspec quotum")
   end
@@ -97,6 +98,52 @@ RSpec.feature "Feature: update quotum: " do
     expect(@quotum.name).to eq("update rspec quotum")
     expect(page).to have_title "Editing #{@quotum.name} | Progressivestack"
     expect(page).to have_content("Editing #{@quotum.name}")
+  end
+
+  # visit and update via remote link (js)
+  # perform update action
+  scenario 'update quotum with spam input (remote/js)', js: true do
+    Capybara.javascript_driver = :selenium
+
+    expect {
+      visit quota_path
+
+      click_link "Edit"
+
+      wait_for_ajax
+
+      expect(page).to have_content('Name')
+      expect(page).to have_content("Editing #{@quotum.name}")
+
+      fill_in 'Name', with: spam_quotum.name
+
+      click_button "Update Quotum"
+
+      expect(page).to have_selector('.alert-success')
+      expect(page).not_to have_content(new_quotum.name)
+      expect(page).to have_title "Quota index | Progressivestack"
+      expect(@quotum.name).to_not eq(new_quotum.name)
+    }.to change(Quotum.visible, :count)
+  end
+
+  # simulate visit and update via url (html)
+  # perform update action
+  scenario 'update quotum with spam input via url (html)', js: true do
+    Capybara.javascript_driver = :selenium
+
+    expect {
+      visit edit_quotum_path(@quotum)
+
+      expect(page).to have_content("Editing #{@quotum.name}")
+      fill_in 'Name', with: spam_quotum.name
+
+      click_button "Update Quotum"
+
+      expect(page).to have_selector('.alert-success')
+      expect(page).not_to have_content(new_quotum.name)
+      expect(page).to have_title "Quota index | Progressivestack"
+      expect(@quotum.name).to_not eq(new_quotum.name)
+    }.to change(Quotum.visible, :count)
   end
 
 end
