@@ -32,7 +32,7 @@ class Quotum < ActiveRecord::Base
 
   # only run slug validation if name is present
   def generate_slug
-    self.slug ||= name.parameterize if name.present?
+    self.slug = name.parameterize if name.present?
   end
 
   # check quotom :name for spam by calling Askimet API

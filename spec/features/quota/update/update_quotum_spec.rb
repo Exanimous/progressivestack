@@ -100,6 +100,24 @@ RSpec.feature "Feature: update quotum: " do
     expect(page).to have_content("Editing #{@quotum.name}")
   end
 
+  # due to parameterization called on name to generate slug - sometimes slug will be non-unique
+  # tests when we create a quotum with valid name and invalid slug due to parameterization
+  scenario 'update quotum with name that creates invalid slug (html)', js: true do
+    Capybara.javascript_driver = :selenium
+
+    @quotum_dup = FactoryGirl.create(:quotum, name: "update rspec quotum placeholder")
+    visit edit_quotum_path(@quotum_dup)
+
+    expect(page).to have_content("Editing #{@quotum_dup.name}")
+    fill_in 'Name', with: "update rspec & quotum"
+    click_button "Update Quotum"
+
+    expect(page).to have_selector('.alert-danger')
+    expect(page).to have_content("Name is unavailable")
+    expect(page).to have_title "Editing #{@quotum_dup.name} | Progressivestack"
+    expect(page).to have_content("Editing #{@quotum_dup.name}")
+  end
+
   # visit and update via remote link (js)
   # perform update action
   scenario 'update quotum with spam input (remote/js)', js: true do
