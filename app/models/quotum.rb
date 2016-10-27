@@ -1,10 +1,12 @@
 class Quotum < ActiveRecord::Base
   include Rakismet::Model
+  include SmartFilter
   rakismet_attrs content: :name
 
   validates :name, presence: true, length: { minimum: 4, maximum: 64 }, uniqueness: true
   validates_length_of :slug, maximum: 64
   validate :slug_uniqueness
+  validate :filter_web_and_email # filter out web urls and emails from string
 
   before_validation :downcase_fields
   before_validation :generate_slug

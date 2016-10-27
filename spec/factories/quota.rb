@@ -10,4 +10,8 @@ FactoryGirl.define do
   factory :spam_quotum, class: Quotum do |f|
     f.name "viagra-test-123"
   end
+
+  factory :forbidden_quotum, class: Quotum do |f|
+    f.name "www . test . com"
+  end
 end

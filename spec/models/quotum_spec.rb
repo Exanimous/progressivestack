@@ -20,6 +20,13 @@ RSpec.describe Quotum, type: :model do
     name = random_string(129) # random 129 characters
     expect(FactoryGirl.build(:quotum, name: name)).to_not be_valid
   end
+  it "is invalid if name contains prohibited characters" do
+    names = ['www.test.com', 'http://test.net', 'w w w . t e s t . c o m', 'test@test. c o m', 'test dot com']
+
+    names.each do |name|
+      expect(FactoryGirl.build(:quotum, name: name)).to_not be_valid
+    end
+  end
 
   def random_string(length)
     (36**(length-1) + rand(36**length - 36**(length-1))).to_s(36)
