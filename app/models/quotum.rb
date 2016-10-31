@@ -1,4 +1,4 @@
-class Quotum < ActiveRecord::Base
+class Quotum < ApplicationRecord
   include Rakismet::Model
   include SmartFilter
   rakismet_attrs content: :name

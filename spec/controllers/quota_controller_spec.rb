@@ -25,29 +25,29 @@ RSpec.describe QuotaController, type: :controller do
 
   describe 'GET #new' do
     it 'Controller: renders the new view (html)' do
-      get :new, format: 'html', slug: FactoryGirl.build(:quotum)
+      get :new, params: { slug: FactoryGirl.build(:quotum), format: :html }
       expect(response).to render_template('new')
-      expect(response.content_type).to eq(Mime::HTML)
+      expect(response.content_type).to eq(Mime[:html])
     end
 
     it 'Controller: renders the new view (js)' do
-      xhr :get, :new, format: 'js', slug: FactoryGirl.build(:quotum)
+      get :new, xhr: true, params: { slug: FactoryGirl.build(:quotum), format: :js }
       expect(response).to render_template('new')
-      expect(response.content_type).to eq(Mime::JS)
+      expect(response.content_type).to eq(Mime[:js])
     end
   end
 
   describe 'GET #edit' do
     it 'Controller: renders the edit view (html)' do
-      get :edit, format: 'html', slug: FactoryGirl.create(:quotum)
+      get :edit, params: { slug: FactoryGirl.create(:quotum), format: :html }
       expect(response).to render_template('edit')
-      expect(response.content_type).to eq(Mime::HTML)
+      expect(response.content_type).to eq(Mime[:html])
     end
 
     it 'Controller: renders the edit view (js)' do
-      xhr :get, :edit, format: 'js', slug: FactoryGirl.create(:quotum)
+      get :edit, xhr: true, params: { slug: FactoryGirl.create(:quotum), format: :js }
       expect(response).to render_template('edit')
-      expect(response.content_type).to eq(Mime::JS)
+      expect(response.content_type).to eq(Mime[:js])
     end
   end
 
@@ -56,12 +56,12 @@ RSpec.describe QuotaController, type: :controller do
     context "with valid attributes" do
       it 'Controller: successfully creates a new quotum', js: true do
         expect {
-          post :create, format: 'js', quotum: FactoryGirl.attributes_for(:quotum)
+          post :create, params: { quotum: FactoryGirl.attributes_for(:quotum), format: :js }
         }.to change(Quotum, :count).by(1)
       end
 
       it 'Controller: displays flash success', js: true do
-        xhr :post, :create, quotum: FactoryGirl.attributes_for(:quotum)
+        post :create, xhr: true, params: { quotum: FactoryGirl.attributes_for(:quotum) }
         expect(flash[:success]).to be_present
       end
     end
@@ -69,12 +69,12 @@ RSpec.describe QuotaController, type: :controller do
     context "with invalid attributes" do
       it 'Controller: fail to create a new quotum', js: true do
         expect {
-          post :create, format: 'js', quotum: FactoryGirl.attributes_for(:invalid_quotum)
+          post :create, params: { quotum: FactoryGirl.attributes_for(:invalid_quotum), format: :js }
         }.to_not change(Quotum, :count)
       end
 
       it 'Controller: displays flash error' do
-        post :create, format: 'js', quotum: FactoryGirl.attributes_for(:invalid_quotum)
+        post :create, params: { quotum: FactoryGirl.attributes_for(:invalid_quotum), format: :js }
         expect(flash[:error]).to be_present
       end
     end
@@ -90,7 +90,7 @@ RSpec.describe QuotaController, type: :controller do
 
       it 'Controller: fail to create a new quotum', js: true do
         expect {
-          post :create, format: 'js', quotum: FactoryGirl.attributes_for(:quotum)
+          post :create, params: { quotum: FactoryGirl.attributes_for(:quotum), format: :js }
         }.to_not change(Quotum, :count)
         expect(flash[:error]).to be_present
       end
@@ -105,19 +105,19 @@ RSpec.describe QuotaController, type: :controller do
 
     context "with valid attributes" do
       it 'Controller: locate requested @quotum', js: true do
-        xhr :put, :update, slug: @quotum, quotum: FactoryGirl.attributes_for(:quotum)
+        put :update, xhr: true, params: { slug: @quotum, quotum: FactoryGirl.attributes_for(:quotum) }
         expect(assigns(:quotum)).to eq(@quotum)
       end
 
       it 'update @quotum attributes', js: true do
         new_name = "quotum updated"
-        xhr :put, :update, slug: @quotum, quotum: FactoryGirl.attributes_for(:quotum, name: new_name)
+        put :update, xhr: true, params: { slug: @quotum, quotum: FactoryGirl.attributes_for(:quotum, name: new_name) }
         @quotum.reload
         expect(@quotum.name).to eq(new_name)
       end
 
       it 'Controller: displays flash success', js: true do
-        xhr :put, :update, slug: @quotum, quotum: FactoryGirl.attributes_for(:quotum)
+        put :update, xhr: true, params: { slug: @quotum, quotum: FactoryGirl.attributes_for(:quotum) }
         expect(flash[:success]).to be_present
       end
 
@@ -125,19 +125,19 @@ RSpec.describe QuotaController, type: :controller do
 
     context "with invalid attributes" do
       it 'Controller: locate requested @quotum', js: true do
-        xhr :put, :update, slug: @quotum, quotum: FactoryGirl.attributes_for(:invalid_quotum)
+        put :update, xhr: true, params: { slug: @quotum, quotum: FactoryGirl.attributes_for(:invalid_quotum) }
         expect(assigns(:quotum)).to eq(@quotum)
       end
 
       it 'does not update @quotum attributes', js: true do
         new_name = "quotum updated"
-        xhr :put, :update, slug: @quotum, quotum: FactoryGirl.attributes_for(:quotum, name: nil)
+        put :update, xhr: true, params: { slug: @quotum, quotum: FactoryGirl.attributes_for(:quotum, name: nil) }
         @quotum.reload
         expect(@quotum.name).to eq(@quotum.name)
       end
 
       it 'Controller: displays flash error', js: true do
-        xhr :put, :update, slug: @quotum, quotum: FactoryGirl.attributes_for(:quotum, name: nil)
+        put :update, xhr: true, params: { slug: @quotum, quotum: FactoryGirl.attributes_for(:quotum, name: nil) }
         expect(flash[:error]).to be_present
       end
     end
@@ -151,12 +151,12 @@ RSpec.describe QuotaController, type: :controller do
 
     it 'deletes the quotum', js: true do
       expect {
-        xhr :delete, :destroy, slug: @quotum
+        delete :destroy, xhr: true, params: { slug: @quotum }
       }.to change(Quotum, :count).by(-1)
     end
 
     it 'Controller: display notice', js: true do
-      xhr :delete, :destroy, slug: @quotum
+      delete :destroy, xhr: true, params: { slug: @quotum }
       expect(flash[:notice]).to be_present
     end
   end

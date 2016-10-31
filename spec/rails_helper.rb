@@ -67,10 +67,15 @@ end
 
 # Capybara test options
 Capybara::Webkit.configure do |config|
-
-  config.block_url("http://www.google-analytics.com/ga.js")
-  config.allow_url("https://www.google.com/recaptcha/api.js")
+  config.allow_url("www.gstatic.com/*")
+  config.allow_url("https://www.google.com/recaptcha/*")
+  config.block_unknown_urls
 
   # Don't load images
   config.skip_image_loading
+end
+
+# Use chrome browser with chromedriver
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
 end

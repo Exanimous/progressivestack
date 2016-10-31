@@ -2,13 +2,15 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5.1'
+gem 'rails', '>= 5.0.0'
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.15'
+# https://bitbucket.org/ged/ruby-pg/overview
+gem 'pg', '~> 0.19'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+# https://github.com/rails/sass-rails
+gem 'sass-rails', '~> 5.0.6'
 # Sass port of Bootstrap : see https://github.com/twbs/bootstrap-sass
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.3.7'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -35,13 +37,15 @@ gem 'rails_real_favicon'
 # Forms made easy for Rails! It's tied to a simple DSL, with no opinion on markup. http://blog.plataformatec.com.br/tag/simple_form
 gem 'simple_form'
 
+# https://github.com/rails/record_tag_helper
+# ActionView Record Tag Helpers
+gem 'record_tag_helper', '~> 1.0'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks', github: 'turbolinks/turbolinks-classic'
-# https://github.com/kossnocorp/jquery.turbolinks
-# jQuery plugin for drop-in fix binded events problem caused by Turbolinks
-gem 'jquery-turbolinks'
+# https://github.com/turbolinks/turbolinks
+# Turbolinks makes following links in your web application faster.
+gem 'turbolinks', '~> 5.0.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -75,7 +79,7 @@ group :development, :test do
   gem 'byebug'
   # https://github.com/rspec/rspec-rails
   # RSpec for Rails-3+ http://relishapp.com/rspec/rspec-rails
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails', '~> 3.5.2'
   # https://github.com/thoughtbot/factory_girl_rails
   # Factory Girl ♥ Rails https://robots.thoughtbot.com
   gem 'factory_girl_rails'
@@ -94,6 +98,12 @@ group :development, :test do
   # Automatically save screen shots when a Capybara scenario fails
   gem 'capybara-screenshot'
   gem 'selenium-webdriver'
+  # https://github.com/rails/rails-controller-testing
+  # Brings back `assigns` and `assert_template` to your Rails tests
+  gem 'rails-controller-testing'
+  # https://github.com/flavorjones/chromedriver-helper
+  # Easy installation and use of chromedriver, the Chromium project's selenium webdriver adapter.
+  gem "chromedriver-helper"
 end
 
 group :development do

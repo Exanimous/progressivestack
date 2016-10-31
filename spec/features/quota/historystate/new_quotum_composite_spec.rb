@@ -78,8 +78,8 @@ RSpec.feature "Feature: new quotum & historystate: " do
     has_form
 
     go_back
-    has_partial
-    has_layout
+
+    be_blank
 
     go_forward
 
@@ -93,8 +93,10 @@ RSpec.feature "Feature: new quotum & historystate: " do
     has_layout
 
     click_link "New Quotum (remote)"
-
+    wait_for_ajax
     go_back
+    wait_for_ajax
+
     has_partial
     has_layout
   end
@@ -172,6 +174,12 @@ RSpec.feature "Feature: new quotum & historystate: " do
 
   def has_partial
     expect(page).to have_title "Quota index | Progressivestack"
+  end
+
+  def be_blank
+    expect(page).not_to have_title "New quotum | Progressivestack"
+    expect(page).not_to have_selector('.navbar-fixed-top')
+    expect(page).not_to have_selector('.footer-bottom')
   end
 
   # ensure that navbar & footer is displayed

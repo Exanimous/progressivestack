@@ -3,7 +3,7 @@
   # Designed for Bootstrap and JQuery
 # */
 
-$(document).ready ->
+document.addEventListener 'turbolinks:load', (event) ->
   $content = $('.main-content')
   $link = $('a')
   $dialog = $('#dialog')

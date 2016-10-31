@@ -60,6 +60,6 @@
     history.replaceState {}, '', '/' + directory
   else # modal origin was javascript
     if lock == false
-      window.history.go -1
+      history.pushState(null, null, ('/' + directory));
   fadeOutNotification 2000
   return
