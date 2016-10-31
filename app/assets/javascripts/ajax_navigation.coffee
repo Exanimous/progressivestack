@@ -22,6 +22,14 @@ document.addEventListener 'turbolinks:load', (event) ->
       return
   return
 
+# Ensure that ajax actions can be tracked with analytics
+$(document).ajaxComplete (e, xhr, settings) ->
+  controller = getController()
+  action = getAction()
+  if controller and (action == 'new' or action == 'edit' or action == 'index') and settings.type != 'DELETE'
+    GoogleAnalytics.trackAjax()
+  return
+
 # --Listen for history state changes
 if history and history.pushState
   # force close modal (with conditional ajax/historyState logic)

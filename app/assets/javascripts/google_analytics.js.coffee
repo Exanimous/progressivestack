@@ -17,7 +17,7 @@ class @GoogleAnalytics
     # If Turbolinks is supported, set up a callback to track pageviews on page:change.
     # If it isn't supported, just track the pageview now.
     if typeof Turbolinks isnt 'undefined' and Turbolinks.supported
-      document.addEventListener "turbolinks:load", (->
+      document.addEventListener ("turbolinks:load"), (->
         GoogleAnalytics.trackPageview()
       ), true
     else
@@ -40,5 +40,14 @@ class @GoogleAnalytics
   @analyticsId: ->
     # your google analytics ID(s) here...
     'UA-77250798-1'
+
+  # handle ajax content
+  @trackAjax: ->
+    unless GoogleAnalytics.isLocalRequest()
+      d = document.location.pathname + document.location.search + document.location.hash
+      _gaq.push [
+        '_trackPageview'
+        d
+      ]
 
 GoogleAnalytics.load()
