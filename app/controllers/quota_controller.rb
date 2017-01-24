@@ -3,6 +3,10 @@ class QuotaController < ApplicationController
   before_action :set_quota, only: [:index]
   before_action :set_quotum, only: [:show, :edit, :update, :destroy]
 
+  before_action -> { current_or_guest_user(true) }, only: [:create, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
+  after_action :force_csrf_headers, only: [:create, :update, :destroy]
+
   # /* A note on parameters & historyState API
 
     # parameters are assigned in JS to control popstate behaviour of the history API
@@ -107,5 +111,16 @@ class QuotaController < ApplicationController
 
   def quotum_params
     params.require(:quotum).permit(:name, :_destroy)
+  end
+
+  protected
+
+  # support ajax authentication actions by manually appending CSRF data to header
+  def force_csrf_headers
+    if request.xhr? and guest_signed_in?
+      # Add csrf tokens directly to response headers
+      response.headers['X-CSRF-Token'] = "#{form_authenticity_token}"
+      response.headers['X-CSRF-Param'] = "#{request_forgery_protection_token}"
+    end
   end
 end

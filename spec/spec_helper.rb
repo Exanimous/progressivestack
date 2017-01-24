@@ -18,6 +18,8 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'support/wait_for_ajax'
 require 'support/database_cleaner_spec'
+require 'support/controller_macros'
+require 'support/authentication'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

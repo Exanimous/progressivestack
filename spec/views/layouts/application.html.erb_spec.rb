@@ -2,6 +2,20 @@
 require 'rails_helper'
 
 describe 'layouts/application.html.erb' do
+
+  # include required application helper methods
+  before do
+    controller.singleton_class.class_eval do
+      protected
+      def current_or_guest_user(create = false)
+        false
+      end
+
+      helper_method :current_or_guest_user
+    end
+  end
+
+
   it 'View: application display header' do
 
     render

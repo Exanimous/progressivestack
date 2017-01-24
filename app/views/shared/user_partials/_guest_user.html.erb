@@ -1,0 +1,30 @@
+<li class="dropdown user-guest-menu">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+    <span><%= icon('user-circle-o', class: "display-inline floating-favicon-small blue-pale padding-right-tiny") %></span>
+
+    <!-- display guest name (generic) -->
+    <p class="display-inline purple-neon padding-left-tiny"> <%= Constants::GUEST_DISPLAY_NAME %> </p>
+    <span><%= icon('caret-down', class: "display-inline padding-left-tiny") %></span>
+
+    <ul class="dropdown-menu">
+      <li>
+        <%= link_to new_user_session_path, class: "display-inline" do %>
+          <%= icon('sign-in') %> sign in
+        <% end %>
+      </li>
+      <li>
+      <%= link_to destroy_user_session_path, method: "delete", data: { confirm: "Are you sure? By deleting your guest account you will lose your data" }, class: "display-inline" do %>
+        <%= icon('trash') %> delete guest account
+      <% end %>
+      </li>
+      <li><%= link_to '#' do %><%= icon('plus', class: "padding-large") %> Something else here<% end %></li>
+    </ul>
+  </a>
+</li>
+
+<li class="user-guest-menu">
+  <%= link_to new_user_registration_path, class: "display-inline" do %>
+    <%= icon('user-plus') %> sign up
+  <% end %>
+</li>

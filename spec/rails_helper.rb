@@ -37,6 +37,16 @@ RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
+  # include warden test helpers and turn on test mode
+  config.include Warden::Test::Helpers
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :view
+  config.extend ControllerMacros, :type => :controller
+
+  config.after :each do
+    Warden.test_reset!
+  end
+
   Capybara::Screenshot.autosave_on_failure = false
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your

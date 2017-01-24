@@ -1,3 +1,5 @@
 $('div#<%= dom_id(@quotum) %>').fadeOut();
 $("#notification").html("<%= escape_javascript(render :partial => 'shared/global_partials/flash_messages' , :locals => { :flash => flash }).html_safe %>");
+// update user display section conditional on user session
+<%= update_user_status %>
 fadeOutNotification(2000);

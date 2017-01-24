@@ -1,0 +1,4 @@
+// update guest status area of navbar right
+$('.blank-user').remove();
+$('.user-guest-menu').remove();
+$('.navbar-right').append("<%= j render partial: 'shared/user_partials/guest_user' %>");

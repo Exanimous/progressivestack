@@ -26,6 +26,16 @@ document.addEventListener 'turbolinks:load', (event) ->
 $(document).ajaxComplete (e, xhr, settings) ->
   controller = getController()
   action = getAction()
+
+  # Manually update CSRF data to response headers (support authentication with ajax)
+  csrf_param = xhr.getResponseHeader('X-CSRF-Param')
+  csrf_token = xhr.getResponseHeader('X-CSRF-Token')
+  if csrf_param
+    $('meta[name="csrf-param"]').attr 'content', csrf_param
+  if csrf_token
+    $('meta[name="csrf-token"]').attr 'content', csrf_token
+
+  # Update google analytics for ajax actions
   if controller and (action == 'new' or action == 'edit' or action == 'index') and settings.type != 'DELETE'
     GoogleAnalytics.trackAjax()
   return

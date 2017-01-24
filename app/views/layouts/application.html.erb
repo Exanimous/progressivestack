@@ -4,7 +4,7 @@
     <title><%= yield(:title) %> | Progressivestack</title>
     <%= display_meta_tags site: 'Progressive Stack' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
-    <%= stylesheet_link_tag controller_name, media: 'all', 'data-turbolinks-track' => 'replace' %>
+    <%= stylesheet_link_tag controller_name, media: 'all', 'data-turbolinks-track' => 'replace' unless %w( registrations sessions).include? controller_name %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
     <%= csrf_meta_tags %>
     <!-- disable this for now

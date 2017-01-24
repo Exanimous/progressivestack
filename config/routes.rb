@@ -1,12 +1,22 @@
 Rails.application.routes.draw do
 
   root 'pages#index'
+  devise_for :users, path: '', controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }, path_names: { sign_up: 'sign_up', edit: 'edit_account'}
+
+  devise_scope :user do
+    post '/sign_up' => "users/registrations#create"
+    patch '/edit_account' => "users/registrations#update"
+    put '/edit_account' => "users/registrations#update"
+  end
+
 
   get 'index' => 'pages#index'
   get 'home' => 'pages#index'
   get 'q/index' =>  redirect('/q')
+  get 'u/index' =>  redirect('/u')
 
   resources :quota, path: 'q', param: :slug
+  resources :users, path: 'u'
 
   # /* Quota redirection rules */
   get 'quota/index' => redirect('/q')
@@ -14,6 +24,11 @@ Rails.application.routes.draw do
   get '/quota/new' => redirect('/q/new')
   get '/quota/:slug/edit', to: redirect("/q/%{slug}/edit")
   get '/quota/:slug/edit', to: redirect("/q/%{slug}/edit")
+
+  # /* User redirection rules */
+  get 'users/index' => redirect('/u')
+  get '/users' => redirect('/u')
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

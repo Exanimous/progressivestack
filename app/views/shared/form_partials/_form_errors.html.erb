@@ -1,0 +1,7 @@
+<!-- inline form error(s) display -->
+<h3><%= pluralize(target.errors.count, "error") %> prohibited this record from being saved:</h3>
+<ul class="errors">
+  <% target.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>

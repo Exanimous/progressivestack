@@ -1,0 +1,27 @@
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+    <span><%= icon('user-circle-o', class: "display-inline floating-favicon-small blue-pale padding-right-tiny") %></span>
+
+    <p class="display-inline purple-neon padding-left-tiny"> <%= user.name %> </p>
+    <span><%= icon('caret-down', class: "display-inline padding-left-tiny") %></span>
+
+    <ul class="dropdown-menu">
+      <li>
+        <%= link_to destroy_user_session_path, method: "delete", class: "display-inline" do %>
+          <%= icon('sign-out') %> sign out
+        <% end %>
+      </li>
+      <li>
+        <%= link_to edit_user_registration_path do %>
+          <%= icon('cog', class: "padding-large") %> Edit Account
+        <% end %>
+      </li>
+      <li>
+        <%= link_to user_registration_path, method: :delete, data: { confirm: "Are you sure you want to delete your account ?" } do %>
+          <%= icon('trash', class: "padding-large") %> Delete account
+        <% end %>
+      </li>
+    </ul>
+  </a>
+</li>

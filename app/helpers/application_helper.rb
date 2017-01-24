@@ -30,4 +30,15 @@ module ApplicationHelper
   def body_class(class_name="body")
     content_for :body_class, class_name
   end
+
+  # display inline form error messages
+  def form_errors_for(object = nil)
+    render('shared/form_partials/form_errors', target: object) if object and object.errors.present?
+  end
+
+  def update_user_status
+    if guest_signed_in?
+      render('shared/user_partials/update_guest_status')
+    end
+  end
 end

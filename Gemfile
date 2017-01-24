@@ -16,7 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # Font-Awesome Sass gem for use in Ruby/Rails projects : see : https://github.com/FortAwesome/font-awesome-sass
-gem 'font-awesome-sass', '~> 4.5.0'
+gem 'font-awesome-sass', '~> 4.7.0'
 # https://github.com/ai/autoprefixer-rails
 # Autoprefixer for Ruby and Ruby on Rails https://twitter.com/autoprefixer
 gem "autoprefixer-rails"
@@ -64,6 +64,9 @@ gem 'rakismet'
 gem 'delayed_job_active_record'
 # https://github.com/thuehlinger/daemons
 gem 'daemons'
+# https://github.com/plataformatec/devise
+# Flexible authentication solution for Rails with Warden.
+gem 'devise'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

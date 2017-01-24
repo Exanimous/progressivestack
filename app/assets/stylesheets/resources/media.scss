@@ -1,9 +1,20 @@
 
 /* responsive text/layout queries */
 
-@media screen and (min-width: 1440px) {
+
+
+@media screen and (min-width: 3000px) {
   .navbar-new {
-    font-size: $navbar-font-size*0.95;
+    font-size: $navbar-font-size*0.95 !important;
+
+    > .container-no-padding {
+      padding-left: 10px;
+    }
+  }
+}
+@media screen and (max-width: 1440px) {
+  .navbar-new {
+    font-size: $navbar-font-size*0.95 !important;
 
     > .container-no-padding {
       padding-left: 10px;
@@ -12,21 +23,28 @@
 }
 @media screen and (max-width: 1280px) {
   .navbar-new {
-    font-size: $navbar-font-size*0.9;
+    font-size: $navbar-font-size*0.9 !important;
+  }
+  .nav > li > a {
+    padding-left: 9px;
+    padding-right: 7px;
   }
 }
 @media screen and (max-width: 992px) {
   .navbar-new {
-    font-size: $navbar-font-size*0.85;
+    font-size: $navbar-font-size*0.85 !important;
+    height: auto;
   }
 }
 @media screen and (max-width: 768px) {
   .navbar-new {
-    font-size: $navbar-font-size*0.75;
+    font-size: $navbar-font-size*0.75 !important;
+    height: auto;
   }
 }
 @media screen and (max-width: 640px) {
   .navbar-new {
-    font-size: $navbar-font-size*0.7;
+    font-size: $navbar-font-size*0.7 !important;
+    height: auto;
   }
 }

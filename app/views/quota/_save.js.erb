@@ -16,6 +16,9 @@ var $notification = $("#notification");
     <% else %>
       $('.quota-index').append("<%= j render partial: 'quota/partials/quotum', locals: {quotum: @quotum } %>");
     <% end %>
+
+    // update user display section conditional on user session
+    <%= update_user_status %>
   <% end %>
 
   $notification.html("<%= escape_javascript(render :partial => 'shared/global_partials/flash_messages' , :locals => { :flash => flash }).html_safe %>");
