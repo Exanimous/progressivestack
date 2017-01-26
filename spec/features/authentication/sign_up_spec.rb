@@ -85,7 +85,8 @@ feature "sign_up as user while already a guest ", js: true do
 
   scenario 'before should already by signed in as guest' do
     visit home_path
-    expect(page).to have_content(Constants::GUEST_DISPLAY_NAME, count: 1)
+    expect(page).to have_content(Constants::GUEST_DISPLAY_NAME)
+    expect(page).to have_selector('.guest-name', count: 1)
   end
 
   # sign up via html
@@ -128,6 +129,7 @@ feature "sign_up as user while already a guest ", js: true do
     expect(page).to have_selector('.alert-danger')
     expect(page).to have_content('sign up')
     expect(current_path).to eq '/sign_up'
-    expect(page).to have_content(Constants::GUEST_DISPLAY_NAME, count: 1)
+    expect(page).to have_content(Constants::GUEST_DISPLAY_NAME)
+    expect(page).to have_selector('.guest-name', count: 1)
   end
 end

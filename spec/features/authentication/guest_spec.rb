@@ -25,7 +25,8 @@ feature "sign in as user while already a guest: ", js: true do
 
       expect(page).to have_content('Dropdown')
       expect(page).to have_content(new_quotum[:name])
-      expect(page).to have_content(Constants::GUEST_DISPLAY_NAME, count: 1)
+      expect(page).to have_content(Constants::GUEST_DISPLAY_NAME)
+      expect(page).to have_selector('.guest-name', count: 1)
       expect(page).to have_content('sign up')
     }.to change(Quotum, :count).by(1)
   end
@@ -39,7 +40,8 @@ feature "sign in as user while already a guest: ", js: true do
         wait_for_ajax
       end
       expect(page).to have_content('Dropdown')
-      expect(page).to have_content(Constants::GUEST_DISPLAY_NAME, count: 1)
+      expect(page).to have_content(Constants::GUEST_DISPLAY_NAME)
+      expect(page).to have_selector('.guest-name', count: 1)
       expect(page).to have_content('sign up')
     }.to change(Quotum, :count).by(-1)
   end
@@ -59,7 +61,8 @@ feature "sign in as user while already a guest: ", js: true do
 
     expect(page).to have_content('Dropdown')
     expect(page).to have_content(updated_quotum[:name])
-    expect(page).to have_content(Constants::GUEST_DISPLAY_NAME, count: 1)
+    expect(page).to have_content(Constants::GUEST_DISPLAY_NAME)
+    expect(page).to have_selector('.guest-name', count: 1)
     expect(page).to have_content('sign up')
   end
 
@@ -80,7 +83,8 @@ feature "sign in as user while already a guest: ", js: true do
       wait_for_ajax
 
       expect(page).to have_content(updated_quotum[:name])
-      expect(page).to have_content(Constants::GUEST_DISPLAY_NAME, count: 1)
+      expect(page).to have_content(Constants::GUEST_DISPLAY_NAME)
+      expect(page).to have_selector('.guest-name', count: 1)
 
       click_link "Edit"
 
@@ -95,7 +99,8 @@ feature "sign in as user while already a guest: ", js: true do
 
       expect(page).to have_content('Dropdown')
       expect(page).to have_content(updated_quotum[:name])
-      expect(page).to have_content(Constants::GUEST_DISPLAY_NAME, count: 1)
+      expect(page).to have_content(Constants::GUEST_DISPLAY_NAME)
+      expect(page).to have_selector('.guest-name', count: 1)
       expect(page).to have_content('sign up')
     }.to change(User.guests, :count).by(1)
   end

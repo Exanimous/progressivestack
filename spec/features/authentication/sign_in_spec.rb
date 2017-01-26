@@ -80,7 +80,8 @@ feature "sign in as user while already a guest: ", js: true do
 
   scenario 'before should already by signed in as guest' do
     visit home_path
-    expect(page).to have_content(Constants::GUEST_DISPLAY_NAME, count: 1)
+    expect(page).to have_content(Constants::GUEST_DISPLAY_NAME)
+    expect(page).to have_selector('.guest-name', count: 1)
   end
 
   # sign in via html
@@ -121,7 +122,8 @@ feature "sign in as user while already a guest: ", js: true do
     expect(page).to have_selector('.alert-warning')
     expect(page).to have_content('Log in')
     expect(current_path).to eq '/sign_in'
-    expect(page).to have_content(Constants::GUEST_DISPLAY_NAME, count: 1)
+    expect(page).to have_content(Constants::GUEST_DISPLAY_NAME)
+    expect(page).to have_selector('.guest-name', count: 1)
   end
 
   # sign in via html
@@ -141,7 +143,8 @@ feature "sign in as user while already a guest: ", js: true do
     expect(page).to have_selector('.alert-warning')
     expect(page).to have_content('Log in')
     expect(current_path).to eq '/sign_in'
-    expect(page).to have_content(Constants::GUEST_DISPLAY_NAME, count: 1)
+    expect(page).to have_content(Constants::GUEST_DISPLAY_NAME)
+    expect(page).to have_selector('.guest-name', count: 1)
   end
 end
 
