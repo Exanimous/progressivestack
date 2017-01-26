@@ -11,7 +11,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # override to provide exception for guest_user
   # this will allow creation of new accounts while signed in as a guest
   def require_no_authentication
-    return if current_guest else super
+    return if current_guest
+    super
   end
 
   def create

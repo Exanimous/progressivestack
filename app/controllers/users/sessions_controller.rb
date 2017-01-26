@@ -3,7 +3,8 @@ class Users::SessionsController < Devise::SessionsController
   # override to provide exception for guest_user
   # this will allow sign_in while already signed in as a guest
   def require_no_authentication
-    return if current_guest else super
+    return if current_guest
+    super
   end
 
   def create
