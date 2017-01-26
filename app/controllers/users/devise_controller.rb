@@ -1,4 +1,4 @@
-class Users::DeviseController < Devise::DeviseController
+class Users::DeviseController < DeviseController
 
   def require_no_authentication
     assert_is_devise_resource!
