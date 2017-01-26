@@ -13,3 +13,4 @@
 /tmp
 .idea
 config/application.yml
+public/assets/*[a-z 0-9][a-z 0-9][a-z 0-9][a-z 0-9][a-z 0-9][a-z 0-9][a-z 0-9][a-z 0-9][a-z 0-9][a-z 0-9][a-z 0-9][a-z 0-9][a-z 0-9][a-z 0-9][a-z 0-9][a-z 0-9][a-z 0-9][a-z 0-9][a-z 0-9][a-z 0-9][a-z 0-9][a-z 0-9].*
