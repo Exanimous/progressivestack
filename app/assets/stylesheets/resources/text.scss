@@ -9,6 +9,9 @@
 }
 
 /* General text/font section */
+p {
+  font-size: $general-font-size;
+}
 
 .text-italic {
   font-style: italic;
