@@ -1,0 +1,12 @@
+<div class="notifications-bar navbar navbar-fixed-bottom navbar-transparent">
+  <div class="container-fluid">
+    <div class="left-part">
+      <p class="text-normal text-bleached">
+        <%= icon('info-circle') %>&nbsp; A guest account has been created for you. If you sign up for a full account your guest data will be persisted.
+      </p>
+      <%= link_to '', class: 'btn btn-primary remove-notification' do %>
+        <%= icon('check') %> Okay.
+      <% end %>
+    </div>
+  </div>
+</div>

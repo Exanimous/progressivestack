@@ -2,3 +2,5 @@
 $('.blank-user').remove();
 $('.user-guest-menu').remove();
 $('.navbar-right').append("<%= j render partial: 'shared/user_partials/guest_user' %>");
+$('#notification-bar').html("<%= j render partial: 'shared/global_partials/guest_notification' %>").
+        hide().fadeIn(2000).delay(15000).fadeOut(2000);

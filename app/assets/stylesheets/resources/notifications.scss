@@ -1,0 +1,62 @@
+/* ===========
+   Notifications bars
+
+   can be used for guest accounts, cookies, announcements, OTP etc
+   =========== */
+
+/* General notifications bar */
+.notifications-bar {
+  border-bottom: 80px solid $blue-medium;
+  border-left: 65px solid transparent;
+  border-right: 65px solid transparent;
+
+  p {
+    margin-bottom: 5px;
+  }
+
+  .left-part {
+    float: left;
+    padding-top: 5px !important;
+  }
+
+  .right-part {
+    width: 10%;
+    float: right;
+    padding-top: 5px;
+    text-align: right;
+  }
+}
+/* Large version */
+@media (min-width: 768px) {
+  .notifications-bar {
+    width: 90%;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 0;
+    max-height: 80px;
+  }
+}
+/* Medium version */
+@media (max-width: 1280px) {
+  .notifications-bar {
+    width: 90%;
+    max-width: 950px;
+    max-height: 85px;
+    border-bottom: 85px solid $blue-medium;
+    font-size: $general-font-size * 0.95;
+  }
+}
+/* Collapsed version */
+@media (max-width: 767px) {
+  .notifications-bar {
+    border-bottom: 115px solid $blue-medium;
+    min-width: 475px;
+    max-height: 110px;
+    font-size: $general-font-size * 0.95;
+
+    .right-part {
+      text-align: center;
+      padding-bottom: 5px;
+    }
+  }
+}

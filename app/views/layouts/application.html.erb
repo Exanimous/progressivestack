@@ -23,6 +23,7 @@
     <%= render partial: 'shared/global_partials/flash_messages', locals: { flash: flash } %>
     <%= render 'layouts/header' %>
     <%= yield %>
+    <div id="notification-bar"></div>
     <%= render 'layouts/footer' %>
     <%= render 'layouts/debug' %>
   </body>
