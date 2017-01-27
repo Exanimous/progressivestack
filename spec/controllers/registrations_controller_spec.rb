@@ -116,6 +116,26 @@ describe Users::RegistrationsController do
       end
     end
 
+    context "with invalid recaptcha" do
+      before do
+        @user = FactoryGirl.attributes_for(:user)
+        Recaptcha.configuration.skip_verify_env.delete("test")
+      end
+
+      after do
+        Recaptcha.configuration.skip_verify_env << "test"
+      end
+
+      subject(:register) { post :create, params: { user: @user, format: :html } }
+
+      it 'Controller: fail to create a new quotum', js: true do
+        expect {
+          register
+        }.to_not change(User, :count)
+        expect(flash[:error]).to be_present
+      end
+    end
+
     # Background dependency: guest signed in
     # Action: attempt new registration with valid attributes
     # Expected Behaviour : current user should be present, guest should be nil

@@ -1,5 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters
+  prepend_before_action :check_captcha, only: [:create]
 
   # declare additional permitted parameters here (along with source restful action)
   def configure_permitted_parameters
@@ -27,5 +28,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # for guest_users, session is destroyed instead
   def destroy
     current_guest.present? ? (head 403) : super
+  end
+
+  private
+
+  def check_captcha
+    unless verify_recaptcha
+      set_flash_message!(:error, :recaptcha_error)
+      self.resource = resource_class.new sign_up_params
+      self.resource.errors.add(:base, 'Recaptcha validation failed')
+      respond_with_navigational(resource) { render :new }
+    end
   end
 end

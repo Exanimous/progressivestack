@@ -3,7 +3,10 @@
 
   <%= simple_form_for(resource, html: { class: 'form-horizontal', role: "form" }, as: resource_name, url: sign_up_path) do |f| %>
     <%= f.error_notification %>
-    <%= form_errors_for resource %>
+
+    <div class="row">
+      <%= form_errors_for resource %>
+    </div>
 
     <div class="form-inputs">
       <%= f.input :name, required: true, autofocus: true %>
@@ -12,8 +15,16 @@
       <%= f.input :password_confirmation, required: true %>
     </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Sign up" %>
+    <div class="row">
+      <div class="recaptcha-container-right">
+        <%= recaptcha_tags %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-actions">
+        <%= f.button :submit, "Sign up" %>
+      </div>
     </div>
   <% end %>
 
