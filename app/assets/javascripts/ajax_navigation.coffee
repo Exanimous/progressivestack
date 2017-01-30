@@ -37,7 +37,8 @@ $(document).ajaxComplete (e, xhr, settings) ->
 
   # Update google analytics for ajax actions
   if controller and (action == 'new' or action == 'edit' or action == 'index') and settings.type != 'DELETE'
-    GoogleAnalytics.trackAjax()
+    if GoogleAnalytics
+      GoogleAnalytics.trackAjax()
   return
 
 # --Listen for history state changes
