@@ -11,6 +11,7 @@ SitemapGenerator::Sitemap.create do
   #        (default options are used if you don't specify)
 
   add home_path, changefreq: 'weekly', priority: 1.0
+  add quota_path, changefreq: 'daily', priority: 1.0
 
   # Add all articles:
   #
