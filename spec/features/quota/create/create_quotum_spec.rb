@@ -26,7 +26,7 @@ RSpec.feature "Feature: create quotum: " do
       fill_in 'Name', with: quotum.name
 
       click_button "Create Quotum"
-
+      expect(page).to have_selector('.spinner', visible: true)
       expect(page).to have_selector('.alert-success')
       expect(page).to have_content(quotum.name)
       expect(page).to have_title "Quota index | Progressivestack"
@@ -48,6 +48,7 @@ RSpec.feature "Feature: create quotum: " do
       fill_in 'Name', with: invalid_quotum.name
       click_button "Create Quotum"
 
+      expect(page).to have_selector('.spinner', visible: true)
       expect(page).to have_selector('.alert-danger')
       expect(page).to have_content("Name can't be blank")
       expect(page).to have_content('New Quotum')
@@ -71,6 +72,7 @@ RSpec.feature "Feature: create quotum: " do
 
       click_button "Create Quotum"
 
+      expect(page).to have_selector('.spinner', visible: true)
       expect(page).to have_selector('.alert-success')
       expect(page).to have_content(quotum.name)
       expect(page).to have_title "Quota index | Progressivestack"
@@ -91,6 +93,7 @@ RSpec.feature "Feature: create quotum: " do
       fill_in 'Name', with: invalid_quotum.name
       click_button "Create Quotum"
 
+      expect(page).to have_selector('.spinner', visible: true)
       expect(page).to have_selector('.alert-danger')
       expect(page).to have_content("Name can't be blank")
       expect(page).to have_content('New Quotum')
@@ -114,6 +117,7 @@ RSpec.feature "Feature: create quotum: " do
       fill_in 'Name', with: 'new rspec & quotum'
       click_button "Create Quotum"
 
+      expect(page).to have_selector('.spinner', visible: true)
       expect(page).to have_selector('.alert-danger')
       expect(page).to have_content("Name is unavailable")
       expect(page).to have_content('New Quotum')
@@ -138,6 +142,7 @@ RSpec.feature "Feature: create quotum: " do
       fill_in 'Name', with: spam_quotum.name
       click_button "Create Quotum"
 
+      expect(page).to have_selector('.spinner', visible: true)
       expect(page).to have_selector('.alert-success')
       expect(page).to_not have_content(quotum.name)
       expect(page).to have_title "Quota index | Progressivestack"
@@ -158,6 +163,7 @@ RSpec.feature "Feature: create quotum: " do
       fill_in 'Name', with: spam_quotum.name
       click_button "Create Quotum"
 
+      expect(page).to have_selector('.spinner', visible: true)
       expect(page).to have_selector('.alert-success')
       expect(page).to_not have_content(quotum.name)
       expect(page).to have_title "Quota index | Progressivestack"
@@ -178,6 +184,7 @@ RSpec.feature "Feature: create quotum: " do
       fill_in 'Name', with: forbidden_quotum.name
       click_button "Create Quotum"
 
+      expect(page).to have_selector('.spinner', visible: true)
       expect(page).to have_selector('.alert-danger')
       expect(page).to have_content("Name contains characters that are unavailable")
       expect(page).to have_title "New quotum | Progressivestack"

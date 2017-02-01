@@ -19,11 +19,7 @@
 $(document).ready(function() {
     // Fade out bootstrap notifications & alerts
     fadeOutNotification(2000);
+
+    // hide loading spinner by default
+    $(".spinner").hide();
 });
-
-
-
-
-
-
-

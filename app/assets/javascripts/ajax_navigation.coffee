@@ -22,10 +22,19 @@ document.addEventListener 'turbolinks:load', (event) ->
       return
   return
 
+# Ajax callbacks
+$(document).ajaxStart (e, xhr, settings) ->
+  $(".spinner").show()
+
+# Ajax callbacks
+$(document).ajaxSuccess (e, xhr, settings) ->
+  $(".spinner").fadeOut(1000)
+
 # Ensure that ajax actions can be tracked with analytics
 $(document).ajaxComplete (e, xhr, settings) ->
   controller = getController()
   action = getAction()
+  $(".spinner").fadeOut(1000)
 
   # Manually update CSRF data to response headers (support authentication with ajax)
   csrf_param = xhr.getResponseHeader('X-CSRF-Param')

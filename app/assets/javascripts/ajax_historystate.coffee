@@ -10,6 +10,7 @@
 # do not push DELETE actions
 @OnRemoteLinkClick = ($content, $link) ->
   $content.on 'ajax:beforeSend', $link, (e, xhr, settings) ->
+    $(".spinner").show()
     # never push delete actions to history
     if settings.type != 'DELETE'
       append = undefined

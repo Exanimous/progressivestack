@@ -22,6 +22,7 @@
     <!-- flash messages (notifications -->
     <%= render partial: 'shared/global_partials/flash_messages', locals: { flash: flash } %>
     <%= render 'layouts/header' %>
+    <%= render 'shared/global_partials/loading_spinner' %>
     <%= yield %>
     <div id="notification-bar"></div>
     <%= render 'layouts/footer' %>

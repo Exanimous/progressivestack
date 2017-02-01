@@ -1,4 +1,4 @@
-<%= simple_form_for(@quotum, html: { class: 'form-horizontal', role: "form" }, remote: true) do |f| %>
+<%= simple_form_for(@quotum, html: { class: 'form-horizontal', role: "form", id: 'quotum-form' }, remote: true) do |f| %>
 
   <div class="modal-body">
 
@@ -15,7 +15,7 @@
     </div>
 
     <div class="form-buttons">
-      <%= f.button :submit, class: "btn btn-success" %>
+      <%= f.button :submit, class: "btn btn-success", id: "form-submit" %>
       <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
     </div>
   </div>
