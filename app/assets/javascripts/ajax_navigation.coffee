@@ -29,12 +29,14 @@ $(document).ajaxStart (e, xhr, settings) ->
 # Ajax callbacks
 $(document).ajaxSuccess (e, xhr, settings) ->
   $(".spinner").fadeOut(1000)
+  $(".block-input").hide();
 
 # Ensure that ajax actions can be tracked with analytics
 $(document).ajaxComplete (e, xhr, settings) ->
   controller = getController()
   action = getAction()
   $(".spinner").fadeOut(1000)
+  $(".block-input").hide();
 
   # Manually update CSRF data to response headers (support authentication with ajax)
   csrf_param = xhr.getResponseHeader('X-CSRF-Param')

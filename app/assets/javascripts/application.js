@@ -22,4 +22,5 @@ $(document).ready(function() {
 
     // hide loading spinner by default
     $(".spinner").hide();
+    $(".block-input").hide();
 });
