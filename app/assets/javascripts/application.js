@@ -24,3 +24,16 @@ $(document).ready(function() {
     $(".spinner").hide();
     $(".block-input").hide();
 });
+
+document.addEventListener("turbolinks:load", function() {
+    // Fade out bootstrap notifications & alerts
+    fadeOutNotification(2000);
+
+    $(".spinner").hide();
+    $(".block-input").hide();
+});
+
+
+
+
+
