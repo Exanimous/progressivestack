@@ -27,7 +27,21 @@ class AccessControl
     return Quotum.none if @force_empty
     if @user.present?
       if @user.tenant_ids
-        Quotum.where(tenant_id: @user.tenant_ids).or(Quotum.where(tenant_id: nil)).all
+        Quotum.where(tenant_id: @user.tenant_ids).or(Quotum.where(tenant_id: nil)).and()
+      else
+        Quotum.where(tenant_id: nil)
+      end
+    else
+      Quotum.where(tenant_id: nil)
+    end
+  end
+
+  # returns only read-only quota
+  def quota_view_only
+    return Quotum.none if @force_empty
+    if @user.present?
+      if @user.tenant_ids
+        Quotum.where(tenant_id: !@user.tenant_ids, tenant_id: nil)
       else
         Quotum.where(tenant_id: nil)
       end
