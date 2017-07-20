@@ -3,14 +3,17 @@
 
     <!-- separate display into controllable and view-only quota -->
 
-    <!-- controllable quota -->
-    <% access_control.quota_controllable.visible.each do |quotum| %>
-      <%= render 'quota/partials/quotum', quotum: quotum %>
-    <% end %>
-
-    <!-- view only quota -->
-    <% access_control.quota_viewable.visible.each do |quotum| %>
-      <%= render 'quota/partials/quotum_view_only', quotum: quotum %>
-    <% end %>
+    <div class="quota-controllable">
+      <!-- controllable quota -->
+      <% access_control.quota_controllable.visible.each do |quotum| %>
+        <%= render 'quota/partials/quotum', quotum: quotum %>
+      <% end %>
+    </div>
+    <div class="quota-view-only">
+      <!-- view only quota -->
+      <% access_control.quota_view_only.visible.each do |quotum| %>
+        <%= render 'quota/partials/quotum_view_only', quotum: quotum %>
+      <% end %>
+    </div>
 
 </div>

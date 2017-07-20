@@ -23,11 +23,11 @@ RSpec.feature "Feature: destroy quotum (signed in as user): " do
       expect {
 
         click_link 'Delete'#
+        wait_for_ajax
         expect(page).to_not have_content(@quotum.name)
 
       }.to change(Quotum, :count).by(-1)
     end
-
   end
 
   # perform delete action but reject alert dialog

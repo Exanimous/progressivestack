@@ -12,9 +12,9 @@ var $notification = $("#notification");
   // replace existing div (if present) or render new (only if quotum is approved)
   <% if @quotum.approved %>
     <% if update  %>
-      $('div#<%= dom_id(@quotum) %>').replaceWith("<%= j render partial: 'quota/partials/quotum', locals: {quotum: @quotum } %>");
+      $('div#<%= dom_id(@quotum) %>').replaceWith("<%= j render partial: 'quota/partials/quotum', locals: { quotum: @quotum } %>");
     <% else %>
-      $('.quota-index').append("<%= j render partial: 'quota/partials/quotum', locals: {quotum: @quotum } %>");
+      $('.quota-controllable').append("<%= j render partial: 'quota/partials/quotum', locals: { quotum: @quotum } %>");
     <% end %>
 
     // update user display section conditional on user session
