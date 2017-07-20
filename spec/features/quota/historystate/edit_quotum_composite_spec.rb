@@ -9,7 +9,9 @@ RSpec.feature "Feature: edit quotum & historystate: " do
   given!(:invalid_quotum) { FactoryGirl.build(:invalid_quotum) }
 
   before :each do
-    @quotum = FactoryGirl.create(:quotum, name: "RSpec Quotum")
+    @user = FactoryGirl.create(:user)
+    login_as @user
+    @quotum = FactoryGirl.create(:quotum, name: "RSpec Quotum", tenant_id: @user.tenant_ids.first)
   end
 
   # historystate scenario test

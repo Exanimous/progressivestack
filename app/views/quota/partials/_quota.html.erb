@@ -1,6 +1,16 @@
 <!-- primary partial for dynamic ajax actions -->
 <div class="quota-index main-content">
-  <% quota.each do |quotum| %>
-    <%= render 'quota/partials/quotum', quotum: quotum %>
-  <% end %>
+
+    <!-- separate display into controllable and view-only quota -->
+
+    <!-- controllable quota -->
+    <% access_control.quota_controllable.visible.each do |quotum| %>
+      <%= render 'quota/partials/quotum', quotum: quotum %>
+    <% end %>
+
+    <!-- view only quota -->
+    <% access_control.quota_viewable.visible.each do |quotum| %>
+      <%= render 'quota/partials/quotum_view_only', quotum: quotum %>
+    <% end %>
+
 </div>

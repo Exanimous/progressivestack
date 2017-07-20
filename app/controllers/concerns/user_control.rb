@@ -17,6 +17,7 @@ module UserControl
 
   # return current user unless is_guest?
   def current_user
+    logger.debug 'ApplicationController:current_user'
     @current_user ||= super
     @current_user && @current_user.is_guest? ? nil : @current_user
   end
@@ -25,16 +26,20 @@ module UserControl
   # if current_user, ensure guest session is destroyed
   # note: as with current_user -> this method will only create a new guest if create_guest = false
   def current_or_guest_user(create_guest = false)
-    if current_user
-      if session[:guest_user_id] && session[:guest_user_id] != current_user.id
-        remove_guest
-        logger.debug "ApplicationController:current_or_guest_user >>> current_user and guest_user session found -- guest_user remove and return current_user"
+    @current_or_guest_user ||=
+    (
+      logger.debug 'ApplicationController:current_or_guest_user'
+      if current_user
+        if session[:guest_user_id] && session[:guest_user_id] != current_user.id
+          remove_guest
+          logger.debug "ApplicationController:current_or_guest_user >>> current_user and guest_user session found -- guest_user remove and return current_user"
+        end
+        current_user
+      else
+        logger.debug "ApplicationController:current_or_guest_user >>> current_user not found -- switching to guest_user with create = #{create_guest}"
+        guest_user(create_guest)
       end
-      current_user
-    else
-      logger.debug "ApplicationController:current_or_guest_user >>> current_user not found -- switching to guest_user with create = #{create_guest}"
-      guest_user(create_guest)
-    end
+    )
   end
 
   # find current_guest
@@ -76,7 +81,7 @@ module UserControl
   # use to transfer data from guest_user to current_user
   def logging_in
     logger.debug "ApplicationController:logging_in >>> "
-    current_user.transfer_data(@cached_guest_user)
+    current_user.transfer_data(guest_user)
   end
 
   # Create guest user record (with appropriate defaults)

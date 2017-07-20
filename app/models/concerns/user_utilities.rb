@@ -18,6 +18,10 @@ module UserUtilities
     def transfer_data(guest)
       logger.debug "UserUtilities >>> transfer_data"
       # iterate through guest associated objects and change id (ownership) to self
+      # update user_tenant ids to new object
+      guest.user_tenants.update_all(user_id: self.id)
+      # update tenant(s) name(s)
+      guest.tenants.update_all(name: self.name)
     end
   end
 

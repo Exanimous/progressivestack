@@ -1,7 +1,7 @@
 <div class="container margin-top-small">
   <h1>Quota</h1>
 
-  <%= render(partial: 'quota/partials/quota', locals: { quota: quota }) %>
+  <%= render(partial: 'quota/partials/quota', locals: { access_control: access_control }) %>
 
   <div class="main-content">
     <%= link_to 'New Quotum', new_quotum_path, class: "btn btn-primary" %>

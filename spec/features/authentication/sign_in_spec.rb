@@ -67,15 +67,19 @@ feature "sign in as user while already a guest: ", js: true do
   given!(:new_user) { FactoryGirl.attributes_for(:user_two) }
   given!(:invalid_user) { FactoryGirl.attributes_for(:invalid_user) }
   given!(:quotum) { FactoryGirl.create(:quotum) }
+  given(:new_quotum) { FactoryGirl.attributes_for(:quotum) }
 
   # simulate creation of guest account
   before(:each) do
     quotum
     visit quota_path
-    accept_confirm do
-      click_link 'Delete'
-      wait_for_ajax
-    end
+    click_link "New Quotum (remote)"
+
+    wait_for_ajax
+    fill_in 'Name', with: new_quotum[:name]
+
+    click_button "Create Quotum"
+    wait_for_ajax
   end
 
   scenario 'before should already by signed in as guest' do

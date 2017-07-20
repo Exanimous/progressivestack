@@ -1,4 +1,6 @@
 module ControllerMacros
+  require 'devise'
+  Warden.test_mode!
 
   def login_user
     before(:each) do
@@ -12,7 +14,7 @@ module ControllerMacros
     before(:each) do
       @request.env["devise.mapping"] = Devise.mappings[:user]
       @current_guest = FactoryGirl.create(:guest_skip_validate)
-      sign_in @current_guest
+      sign_in @current_guest, scope: :guest
       session[:guest_user_id] = @current_guest.id
     end
   end

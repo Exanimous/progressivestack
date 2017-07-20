@@ -2,6 +2,10 @@
 require 'rails_helper'
 
 describe 'quota/new' do
+  before :each do
+    @access_control = AccessControl.new(nil)
+  end
+
   it 'View: display quota new html page correctly' do
 
     @quotum = Quotum.new

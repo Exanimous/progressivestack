@@ -3,6 +3,9 @@ class Quotum < ApplicationRecord
   include SmartFilter
   rakismet_attrs content: :name
 
+  belongs_to :tenant
+  has_many :users, through: :tenant
+
   validates :name, presence: true, length: { minimum: 4, maximum: 64 }, uniqueness: true
   validates_length_of :slug, maximum: 64
   validate :slug_uniqueness

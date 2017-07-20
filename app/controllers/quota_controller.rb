@@ -1,7 +1,8 @@
 class QuotaController < ApplicationController
   include ActionView::Helpers::TextHelper
   before_action :set_quota, only: [:index]
-  before_action :set_quotum, only: [:show, :edit, :update, :destroy]
+  before_action :set_quotum_controllable, only: [:edit, :update, :destroy]
+  before_action :set_quotum, only: [:show]
 
   before_action -> { current_or_guest_user(true) }, only: [:create, :update, :destroy]
   before_action :authenticate_user!, only: [:create, :update, :destroy]
@@ -21,13 +22,13 @@ class QuotaController < ApplicationController
       format.html {
         if request.xhr?
           if params[:fragment].present?
-            return render partial: 'quota/partials/quota', locals: { quota: @quota } ,layout: false
+            return render partial: 'quota/partials/quota', locals: { access_control: @quota }, layout: false
           else
             render :index
           end
         else
           if params[:fragment].present?
-            render partial: 'quota/partials/quota', locals: { quota: @quota } ,layout: false
+            render partial: 'quota/partials/quota', locals: { access_control: @quota }, layout: false
           else
             render :index
           end
@@ -57,6 +58,7 @@ class QuotaController < ApplicationController
 
   def create
     @quotum = Quotum.new(quotum_params)
+    set_tenant
 
     respond_to do |format|
       if verify_recaptcha(model: @quotum) && @quotum.save
@@ -73,6 +75,7 @@ class QuotaController < ApplicationController
 
   def update
     @quotum.assign_attributes(quotum_params)
+    set_tenant
 
     respond_to do |format|
       if verify_recaptcha(model: @quotum) && @quotum.save
@@ -102,15 +105,23 @@ class QuotaController < ApplicationController
   private
 
   def set_quotum
-    @quotum = Quotum.find_by_slug!(params[:slug])
+    @quotum = @access_control.quota_viewable.find_by_slug!(params[:slug])
+  end
+
+  def set_quotum_controllable
+    @quotum = @access_control.quota_controllable.find_by_slug!(params[:slug])
   end
 
   def set_quota
-    @quota = Quotum.visible.all
+    @quota = @access_control
   end
 
   def quotum_params
     params.require(:quotum).permit(:name, :_destroy)
+  end
+
+  def set_tenant
+    @quotum.tenant_id = primary_tenant_permission
   end
 
   protected

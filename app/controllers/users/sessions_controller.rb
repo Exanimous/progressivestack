@@ -46,6 +46,7 @@ class Users::SessionsController < Devise::SessionsController
     # success: delete guest account
     old.delete if old
 
+    session[:user_id] = resource.id
     respond_with resource, location: after_sign_in_path_for(resource)
     current_or_guest_user
   end
@@ -53,10 +54,11 @@ class Users::SessionsController < Devise::SessionsController
   # if guest user - delete model
   def destroy
     if current_guest
-      user = current_guest
+      delete_id = current_guest.id
       signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
       set_flash_message! :notice, :signed_out_guest if signed_out
-      user.delete
+      user_to_delete = User.find(delete_id)
+      user_to_delete.delete
       yield if block_given?
       respond_to_on_destroy
     else

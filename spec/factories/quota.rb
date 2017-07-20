@@ -3,6 +3,14 @@ FactoryGirl.define do
     f.name "testing 123"
   end
 
+  factory :user_quotum, class: Quotum do |f|
+    f.name "testing 123 user quotum"
+  end
+
+  factory :user_quotum_two, class: Quotum do |f|
+    f.name "testing 345 user quotum"
+  end
+
   factory :invalid_quotum, class: Quotum do |f|
     f.name ""
   end

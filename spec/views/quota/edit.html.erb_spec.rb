@@ -3,6 +3,7 @@ require 'rails_helper'
 
 describe 'quota/edit' do
   before :each do
+    @access_control = AccessControl.new(nil)
     @quotum = FactoryGirl.create(:quotum, name: "rspec edit quotum")
   end
 

@@ -5,6 +5,10 @@ FactoryGirl.define do
     f.password 'hunter2'
   end
 
+  factory :user_tenant do |f|
+    f.permission_level 3
+  end
+
   factory :user_two, class: User do |f|
     f.name 'current-user-2'
     f.email 'current-user-2@progressivestack.com'

@@ -4,16 +4,18 @@ require 'rails_helper'
 # feature spec to test:
 # new quotum, create, update index display
 
-RSpec.feature "Feature: destroy quotum: " do
+RSpec.feature "Feature: destroy quotum (signed in as user): " do
   Capybara.javascript_driver = :webkit
   before :each do
-    @quotum = FactoryGirl.create(:quotum, name: "update RSpec Quotum")
+    @user = FactoryGirl.create(:user)
+    @quotum = FactoryGirl.create(:quotum, name: "update RSpec Quotum", tenant_id: @user.tenant_ids.first)
   end
 
   # perform delete action and accept alert dialog
   scenario 'delete quotum (accept alert)', js: true do
     Capybara.current_driver = :webkit
 
+    login_as @user
     visit quota_path
 
     accept_confirm do
@@ -32,6 +34,7 @@ RSpec.feature "Feature: destroy quotum: " do
   scenario 'delete quotum (reject alert)', js: true do
     Capybara.current_driver = :webkit
 
+    login_as @user
     visit quota_path
 
     dismiss_confirm do

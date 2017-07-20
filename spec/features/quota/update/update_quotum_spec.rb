@@ -12,7 +12,9 @@ RSpec.feature "Feature: update quotum: " do
   given(:invalid_quotum) { FactoryGirl.build(:invalid_quotum) }
   given!(:spam_quotum) { FactoryGirl.build(:spam_quotum) }
   before :each do
-    @quotum = FactoryGirl.create(:quotum, name: "update rspec quotum")
+    @user = FactoryGirl.create(:user)
+    login_as @user
+    @quotum = FactoryGirl.create(:quotum, name: "update rspec quotum", tenant_id: @user.tenant_ids.first)
   end
 
 
@@ -105,7 +107,7 @@ RSpec.feature "Feature: update quotum: " do
   scenario 'update quotum with name that creates invalid slug (html)', js: true do
     Capybara.javascript_driver = :selenium
 
-    @quotum_dup = FactoryGirl.create(:quotum, name: "update rspec quotum placeholder")
+    @quotum_dup = FactoryGirl.create(:quotum, name: "update rspec quotum placeholder", tenant_id: @user.tenant_ids.first)
     visit edit_quotum_path(@quotum_dup)
 
     expect(page).to have_content("Editing #{@quotum_dup.name}")

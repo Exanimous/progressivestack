@@ -1,6 +1,6 @@
 <body data-controller="<%= controller.controller_path %>" data-action="<%= controller.action_name %>" data-html-action="1">
 
-<%= render partial: 'index', locals: { quota: Quotum.none }, layout: false %>
+<%= render partial: 'index', locals: { access_control: @access_control.quota_set_to_empty(true) }, layout: false %>
 
 <% title("New quotum ") %>
 <% modal_header("New Quotum") %>
