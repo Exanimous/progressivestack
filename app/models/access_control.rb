@@ -27,7 +27,7 @@ class AccessControl
     return Quotum.none if @force_empty
     if @user.present?
       if @user.tenant_ids
-        Quotum.where(tenant_id: @user.tenant_ids).or(Quotum.where(tenant_id: nil)).and()
+        Quotum.where(tenant_id: @user.tenant_ids).or(Quotum.where(tenant_id: nil))
       else
         Quotum.where(tenant_id: nil)
       end
