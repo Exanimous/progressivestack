@@ -32,7 +32,7 @@ RSpec.describe QuotaController, type: :controller do
         expect(assigns(:access_control).quota_controllable).to eq([])
       end
 
-      it 'Controller: quota_viewable array is present' do
+      it 'Controller: quota_view_only array is present' do
         quotum = FactoryGirl.create(:quotum)
         get :index
         expect(assigns(:access_control).quota_view_only).to eq([quotum])
