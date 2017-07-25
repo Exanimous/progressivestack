@@ -43,10 +43,10 @@ class AccessControl
       if @user.tenant_ids
         Quotum.where.not(tenant_id: @user.tenant_ids).or(Quotum.where(tenant_id: nil))
       else
-        Quotum.where(tenant_id: nil)
+        Quotum.all
       end
     else
-      Quotum.where(tenant_id: nil)
+      Quotum.all
     end
   end
 
