@@ -1,0 +1,22 @@
+<div class="modal-body">
+  <p>this is a placeholder...</p>
+
+  <p><strong>creation date:</strong> <%= @quotum.created_at %></p>
+  <p><strong>last update:</strong> <%= @quotum.updated_at %></p>
+  <p><strong>slug:</strong> <%= @quotum.slug %></p>
+
+  <h3>Tenancy data</h3>
+
+
+  <% @quotum.users.each do |user| %>
+    <p><strong>name:</strong> <%= user.name %></p>
+  <% end %>
+
+</div>
+
+<div class="modal-footer">
+
+  <div class="form-buttons">
+    <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+  </div>
+</div>

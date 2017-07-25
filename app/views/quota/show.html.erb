@@ -2,11 +2,11 @@
 
 <%= render partial: 'index', locals: { access_control: @access_control.quota_set_to_empty(true) }, layout: false %>
 
-<% title("Editing #{@quotum.name} ") %>
-<% modal_header("Editing #{@quotum.name}") %>
+<% title("#{@quotum.name} | Progressivestack") %>
+<% modal_header("viewing #{@quotum.name}") %>
 
 <%= javascript_tag do %>
-  <%= render(partial: 'shared/global_partials/input_modal', formats: [:js]) %>
+  <%= render(partial: 'shared/global_partials/view_modal', formats: [:js]) %>
 <% end %>
 
 </body>

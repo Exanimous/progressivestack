@@ -1,0 +1,5 @@
+document.title = '<%= "#{@quotum.name} | Progressivestack" %>';
+header = '<%= "viewing #{@quotum.name}" %>';
+$(".modal-header .modal-title").html(header);
+$(".modal-body-content").html("<%= j (render 'show') %>");
+$("#dialog").modal("show");

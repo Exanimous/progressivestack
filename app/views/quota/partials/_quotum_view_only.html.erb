@@ -1,2 +1,2 @@
 <!-- layout & display for each quotum object -->
-<h3><%= quotum.name %> (view only)</h3>
+<h3><%= link_to("#{quotum.name} (view only)", quotum_path(quotum), remote: true) %></h3>

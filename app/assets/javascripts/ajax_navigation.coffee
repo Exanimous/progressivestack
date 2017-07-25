@@ -47,7 +47,7 @@ $(document).ajaxComplete (e, xhr, settings) ->
     $('meta[name="csrf-token"]').attr 'content', csrf_token
 
   # Update google analytics for ajax actions
-  if controller and (action == 'new' or action == 'edit' or action == 'index') and settings.type != 'DELETE'
+  if controller and (action == 'new' or action == 'edit' or action == 'index' or action == 'show') and settings.type != 'DELETE'
     if GoogleAnalytics
       GoogleAnalytics.trackAjax()
   return

@@ -1,7 +1,7 @@
 <!-- layout & display for each quotum object -->
 <%= div_for quotum do %>
 
-  <h3><%= quotum.name %></h3>
+  <h3><%= link_to(quotum.name, quotum_path(quotum), remote: true) %></h3>
   <%= link_to 'Edit', edit_quotum_path(quotum), remote: true, class: "btn btn-primary" %>
   <%= link_to 'Delete', quotum_path(quotum), method: :delete, data: { confirm: "Delete #{ quotum.name } ?" }, remote: true, class: "btn btn-danger" %>
 <% end %>

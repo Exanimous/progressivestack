@@ -62,6 +62,40 @@ RSpec.describe QuotaController, type: :controller do
     end
   end
 
+  describe 'GET #show' do
+
+    context 'signed in as user' do
+      login_user
+
+      it 'Controller: renders the show view (html)' do
+        get :show, params: { slug: FactoryGirl.create(:quotum, tenant_id: @current_user.tenant_ids.first), format: :html }
+        expect(response).to render_template('show')
+        expect(response.content_type).to eq(Mime[:html])
+      end
+
+      it 'Controller: renders the show view (js)' do
+        get :show, xhr: true, params: { slug: FactoryGirl.create(:quotum, tenant_id: @current_user.tenant_ids.first), format: :js }
+        expect(response).to render_template('show')
+        expect(response.content_type).to eq(Mime[:js])
+      end
+    end
+
+    context 'not signed in' do
+      it 'Controller: renders the show view (html)' do
+        get :show, params: { slug: FactoryGirl.create(:quotum), format: :html }
+        expect(response).to render_template('show')
+        expect(response.content_type).to eq(Mime[:html])
+      end
+
+      it 'Controller: renders the show view (js)' do
+        get :show, xhr: true, params: { slug: FactoryGirl.create(:quotum), format: :js }
+        expect(response).to render_template('show')
+        expect(response.content_type).to eq(Mime[:js])
+      end
+    end
+
+  end
+
   describe 'GET #edit' do
 
     context 'signed in as user' do

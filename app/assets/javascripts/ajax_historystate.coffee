@@ -48,7 +48,7 @@
   directory = getController()
   action = getAction()
   if html_action # modal was displayed via html action (via url)
-    if lock == false and (action == 'new' or action == 'edit')
+    if lock == false and (action == 'new' or action == 'edit' or action == 'show')
       history.pushState {}, '', $(this).attr('href')
     $.ajax
       type: 'GET'
