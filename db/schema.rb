@@ -75,13 +75,11 @@ ActiveRecord::Schema.define(version: 20170224105906) do
     t.datetime "locked_at"
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
-    t.integer  "tenant_id"
     t.boolean  "guest",                             default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["guest"], name: "index_users_on_guest", using: :btree
     t.index ["name"], name: "index_users_on_name", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-    t.index ["tenant_id"], name: "index_users_on_tenant_id", using: :btree
   end
 
 end
