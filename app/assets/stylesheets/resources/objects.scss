@@ -100,7 +100,7 @@
 }
 /* Top border */
 .featurette:before,
-.featurette:after {
+.featurette:after, .featurette-adjacent {
   box-sizing: border-box;
   border-style: solid;
   border-color: transparent;
@@ -136,14 +136,14 @@
 }
 
 .featurette-small:before {
-  @extend .featurette:before;
+  @extend .featurette-adjacent;
   border-width: 40px;
   border-top-width: 0;
   border-bottom-color: $featurette-default;
   top: -20px;
 }
 .featurette-small:after {
-  @extend .featurette:after;
+  @extend .featurette-adjacent;
   border-width: 40px;
 }
 
