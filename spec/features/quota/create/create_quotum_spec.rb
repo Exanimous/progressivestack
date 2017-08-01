@@ -43,6 +43,8 @@ RSpec.feature "Feature: create quotum: " do
 
       click_link "New Quotum (remote)"
 
+      sleep 0.5
+
       wait_for_ajax
       expect(page).to have_content('Name')
       fill_in 'Name', with: invalid_quotum.name
