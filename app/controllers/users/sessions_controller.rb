@@ -54,11 +54,11 @@ class Users::SessionsController < Devise::SessionsController
   # if guest user - delete model
   def destroy
     if current_guest
-      delete_id = current_guest.id
+      destroy_id = current_guest.id
       signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
       set_flash_message! :notice, :signed_out_guest if signed_out
-      user_to_delete = User.find(delete_id)
-      user_to_delete.delete
+      user_to_destroy = User.find(destroy_id)
+      user_to_destroy.destroy
       yield if block_given?
       respond_to_on_destroy
     else

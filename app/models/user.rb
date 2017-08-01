@@ -5,12 +5,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :lockable
 
+  after_create :create_tenant
+  before_destroy :delete_quota
 
   has_many :user_tenants, dependent: :destroy
-  has_many :tenants, through: :user_tenants
-  has_many :quota, through: :tenants
+  has_many :tenants, through: :user_tenants, dependent: :destroy
+  has_many :quota, through: :tenants # destroy case handled in callbacks
 
-  after_create :create_tenant
 
   validates :name, presence: true, length: { minimum: 4, maximum: 64 }, uniqueness: true
   VALID_EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
@@ -19,6 +20,16 @@ class User < ApplicationRecord
 
   scope :guests, -> { where(guest: true) }
   scope :member, -> { where.not(guest: true) }
+
+  # ** Start of Callbacks
+
+  # dependent: :destroy will fail with 'HasManyThroughNestedAssociationsAreReadonly' error
+  # explicitly clean up associated objects instead
+  def delete_quota
+    Quotum.where(id: quotum_ids).delete_all
+  end
+
+  # ** End of Callbacks
 
   def email_required?
     false
